@@ -1,17 +1,19 @@
-import Header from "@/components/Header";
-import AIExperience from "@/components/AIExperience";
+import Hero from "@/components/Hero";
+import AIProjects from "@/components/AIProjects";
+import WorkshopSection from "@/components/WorkshopSection";
+import SpeakingSection from "@/components/SpeakingSection";
 import OtherExperience from "@/components/OtherExperience";
-import Skills from "@/components/Skills";
 import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
       <main>
-        <AIExperience />
+        <Hero />
+        <AIProjects />
+        <WorkshopSection />
+        <SpeakingSection />
         <OtherExperience />
-        <Skills />
       </main>
       <Footer />
     </div>
