@@ -77,8 +77,8 @@ const WorkshopSection = () => {
             </div>
             
             <Button className="gap-2" asChild>
-              <a href="mailto:megaletterbox@gmail.com">
-                Book a Workshop
+              <a href="https://ai.asdcode.com/" target="_blank" rel="noopener noreferrer">
+                Learn more
                 <ArrowRight className="w-4 h-4" />
               </a>
             </Button>
