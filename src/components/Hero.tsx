@@ -1,22 +1,28 @@
 import { Mail, Linkedin, Copy, Check, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 const Hero = () => {
   const [copied, setCopied] = useState(false);
   const email = "viktor@shcherban.com";
+  const { toast } = useToast();
 
   const copyEmail = () => {
     navigator.clipboard.writeText(email);
     setCopied(true);
+    toast({
+      description: "Email copied to your clipboard",
+      duration: 3000,
+    });
     setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    <section className="py-12 md:py-20 bg-slate-900 text-white">
+    <section className="py-12 md:py-20 bg-slate-800 text-white">
       <div className="container max-w-6xl">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
+        <div className="grid md:grid-cols-3 gap-12 items-center">
+          <div className="md:col-span-2">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
               AI Architect &<br />
               <span className="text-primary">Full-Stack Developer</span>
@@ -28,11 +34,9 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Button size="lg" className="gap-2" asChild>
-                <a href="mailto:viktor@shcherban.com">
-                  <Mail className="w-4 h-4" />
-                  Get in Touch
-                </a>
+              <Button size="lg" className="gap-2" onClick={copyEmail}>
+                <Mail className="w-4 h-4" />
+                Get in Touch
               </Button>
             </div>
 
@@ -61,8 +65,8 @@ const Hero = () => {
             </div>
           </div>
           <div className="hidden md:flex justify-center">
-            <div className="w-64 h-80 bg-slate-800 rounded-2xl border border-slate-700 flex items-center justify-center">
-              <span className="text-slate-500 text-sm">Photo placeholder</span>
+            <div className="w-56 h-72 bg-slate-700 rounded-2xl border border-slate-600 flex items-center justify-center">
+              <span className="text-slate-400 text-sm">Photo placeholder</span>
             </div>
           </div>
         </div>
