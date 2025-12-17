@@ -56,7 +56,7 @@ const projects: Project[] = [
 
 const AIProjects = () => {
   return (
-    <section id="projects" className="py-20 bg-accent/30">
+    <section id="projects" className="py-12 bg-accent/30">
       <div className="container max-w-6xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -90,16 +90,11 @@ const AIProjects = () => {
                   ))}
                 </ul>
                 <div className="flex flex-wrap gap-1.5">
-                  {project.tech.slice(0, 4).map((t, i) => (
-                    <Badge key={i} variant="secondary" className="text-xs">
+                  {project.tech.map((t, i) => (
+                    <Badge key={i} variant="secondary" className="text-xs bg-primary/10 text-primary border-0">
                       {t}
                     </Badge>
                   ))}
-                  {project.tech.length > 4 && (
-                    <Badge variant="secondary" className="text-xs">
-                      +{project.tech.length - 4}
-                    </Badge>
-                  )}
                 </div>
               </CardContent>
             </Card>
