@@ -1,3 +1,6 @@
+import { Card, CardContent } from "@/components/ui/card";
+import { Briefcase } from "lucide-react";
+
 interface ExperienceItem {
   period: string;
   title: string;
@@ -7,61 +10,73 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
   {
-    period: "Sep 2020 – Sep 2023",
+    period: "2020 – 2023",
     title: "Hands-on CTO & Co-founder",
     company: "TimberBase, Berlin",
-    description: "Designed and scaled global marketplace architecture (0 to 1). Established CI/CD pipelines and mentored engineering team.",
+    description: "Scaled global B2B marketplace architecture (0→1). CI/CD, clean architecture, team mentoring.",
   },
   {
-    period: "Sep 2017 – Sep 2020",
+    period: "2017 – 2020",
     title: "Hands-on CTO & Co-founder",
     company: "Uberblick, Berlin",
-    description: "Internal communication app for hotels. Delivered full MVP (Web+iOS+Android) in 3 months.",
+    description: "Hotel communication app. Full MVP (Web+iOS+Android) in 3 months. React Native, AWS.",
   },
   {
-    period: "Jan 2014 – Sep 2017",
+    period: "2014 – 2017",
     title: "Software Architect",
-    company: "Bonial International Group, Berlin",
-    description: "Led team of iOS, Android, and React Native developers. System design and architecture.",
+    company: "Bonial International Group",
+    description: "Led iOS, Android, React Native teams. System design, clean architecture, CI/CD.",
   },
   {
-    period: "Jun 2011 – Dec 2013",
+    period: "2011 – 2013",
     title: "CTO & Founder",
-    company: "asdCode Mobile Agency, Kyiv",
-    description: "Led team of 5 developers. Project management and mobile app development.",
+    company: "asdCode Mobile Agency",
+    description: "Team of 5. Project management, mobile development, agile delivery.",
   },
   {
-    period: "Apr 2010 – Dec 2013",
+    period: "2010 – 2013",
     title: "CTO & Co-founder",
-    company: "iStat24 Call-Tracking, Kyiv",
-    description: "Managing team, gave ~20 presentations at industry conferences.",
+    company: "iStat24 Call-Tracking",
+    description: "20+ conference presentations. Customer development, Scrum introduction.",
   },
   {
-    period: "Jun 2006 – Oct 2012",
+    period: "2006 – 2012",
     title: "CTO & Co-founder",
-    company: "Vint.com.ua e-commerce, Kyiv",
-    description: "Created e-commerce company from scratch. Web, iOS, Android development.",
+    company: "Vint.com.ua e-commerce",
+    description: "Built e-commerce from scratch. Web, back-office, ERP, iOS & Android apps.",
   },
 ];
 
 const OtherExperience = () => {
   return (
-    <section className="py-12 bg-accent/50">
-      <div className="container max-w-4xl">
-        <h2 className="text-xl font-bold text-foreground mb-6">
-          Previous Experience
-        </h2>
-        <div className="grid gap-4">
+    <section className="py-20 bg-accent/30">
+      <div className="container max-w-6xl">
+        <div className="text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+            Previous Experience
+          </h2>
+          <p className="text-muted-foreground">
+            18 years building products, leading teams, and scaling companies
+          </p>
+        </div>
+        
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {experiences.map((exp, index) => (
-            <div key={index} className="flex flex-col md:flex-row md:gap-6 text-sm">
-              <span className="text-muted-foreground md:w-40 shrink-0">{exp.period}</span>
-              <div>
-                <h3 className="font-medium text-foreground">
-                  {exp.title} @ {exp.company}
-                </h3>
-                <p className="text-muted-foreground">{exp.description}</p>
-              </div>
-            </div>
+            <Card key={index} className="border border-border hover:border-primary/30 transition-colors">
+              <CardContent className="pt-6">
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded bg-accent flex items-center justify-center text-muted-foreground shrink-0">
+                    <Briefcase className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-muted-foreground mb-1">{exp.period}</p>
+                    <h3 className="font-medium text-foreground text-sm mb-1">{exp.title}</h3>
+                    <p className="text-sm text-primary mb-2">{exp.company}</p>
+                    <p className="text-xs text-muted-foreground">{exp.description}</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>
