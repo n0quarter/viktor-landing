@@ -1,9 +1,8 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Bot, Building2, Users } from "lucide-react";
 
 interface Project {
-  icon: React.ReactNode;
+  logo: string;
   title: string;
   company: string;
   period: string;
@@ -14,20 +13,20 @@ interface Project {
 
 const projects: Project[] = [
   {
-    icon: <Bot className="w-6 h-6" />,
-    title: "Multi-Modal AI Agents",
-    company: "Dolittle-AI.de",
-    period: "Aug 2025 - Present",
-    description: "Building production-grade multi-step AI agents with RAG, voice, and text chat capabilities.",
+    logo: "/src/assets/projects/alteos_logo.svg",
+    title: "AI Solutions",
+    company: "alteos",
+    period: "2023 - 2024",
+    description: "Enterprise AI solutions and consulting services.",
     highlights: [
-      "Multi-modal AI agents (voice + text)",
-      "LLM evaluation frameworks (Evals)",
-      "Production monitoring for hallucinations",
+      "Custom AI implementations",
+      "Enterprise integrations",
+      "AI strategy consulting",
     ],
-    tech: ["RAG", "LLM", "Langchain", "Langsmith", "Python", "TypeScript", "AWS"],
+    tech: ["AI/ML", "Python", "Cloud Services"],
   },
   {
-    icon: <Building2 className="w-6 h-6" />,
+    logo: "/src/assets/projects/SuitePad_logo.png",
     title: "AI Concierge for Hotels",
     company: "SuitePad",
     period: "Aug 2024 - Present",
@@ -40,7 +39,20 @@ const projects: Project[] = [
     tech: ["RAG", "LLM", "Langchain", "Mastra", "Ruby on Rails", "AWS Fargate"],
   },
   {
-    icon: <Users className="w-6 h-6" />,
+    logo: "/src/assets/projects/DocDolite_logo.png",
+    title: "Multi-Modal AI Agents",
+    company: "DocDolittle",
+    period: "Aug 2025 - Present",
+    description: "Building production-grade multi-step AI agents with RAG, voice, and text chat capabilities.",
+    highlights: [
+      "Multi-modal AI agents (voice + text)",
+      "LLM evaluation frameworks (Evals)",
+      "Production monitoring for hallucinations",
+    ],
+    tech: ["RAG", "LLM", "Langchain", "Langsmith", "Python", "TypeScript", "AWS"],
+  },
+  {
+    logo: "/src/assets/projects/askSchmidt.jpeg",
     title: "AI Bot for Refugees",
     company: "Ukraine Refugee Support",
     period: "Oct 2023 - Present",
@@ -63,16 +75,16 @@ const AIProjects = () => {
             Recent AI Projects
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            During the last 3+ years I've built 5 production-grade genAI systems
+            During the last 3+ years I've built 4+ production-grade genAI systems
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
-            <Card key={index} className="border border-border hover:border-primary/50 transition-colors">
+            <Card key={index} className="border border-border hover:border-primary/50 select-text">
               <CardHeader>
-                <div className="w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4">
-                  {project.icon}
+                <div className="h-12 flex items-center justify-start mb-4">
+                  <img src={project.logo} alt={`${project.company} logo`} className="max-h-full max-w-full object-contain" draggable="false" />
                 </div>
                 <CardTitle className="text-xl">{project.title}</CardTitle>
                 <CardDescription>
@@ -91,7 +103,7 @@ const AIProjects = () => {
                 </ul>
                 <div className="flex flex-wrap gap-1.5">
                   {project.tech.map((t, i) => (
-                    <Badge key={i} variant="secondary" className="text-xs bg-primary/10 text-primary border-0 hover:bg-sky-500/20 hover:text-sky-700 transition-colors cursor-default">
+                    <Badge key={i} variant="secondary" className="text-xs bg-primary/10 text-primary border-0">
                       {t}
                     </Badge>
                   ))}

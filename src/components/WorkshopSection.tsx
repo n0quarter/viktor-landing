@@ -51,7 +51,7 @@ const testimonials = [
 
 const WorkshopSection = () => {
   return (
-    <section className="py-20">
+    <section className="py-20 bg-muted/30">
       <div className="container max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left: Workshop Info */}
