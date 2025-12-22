@@ -24,7 +24,7 @@ const Hero = () => {
 
   return (
     <section
-      className="py-12 md:py-20 text-white"
+      className="py-12 md:py-15 text-white"
       style={{
         backgroundImage: `url(${bgImage})`,
         backgroundSize: 'cover',
