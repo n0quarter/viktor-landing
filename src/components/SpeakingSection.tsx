@@ -1,16 +1,17 @@
+// Another test comment
 import { Mic, Calendar, MapPin } from "lucide-react";
-import speakingPhoto from "@/assets/speaking-photo.png";
+import speakingPhoto from "@/assets/viktor-speaking.png";
 
 const SpeakingSection = () => {
   return (
-    <section className="py-24 bg-slate-800 text-white">
+    <section className="py-12 bg-slate-800 text-white">
       <div className="container max-w-6xl">
         <div className="flex flex-col md:flex-row md:items-center gap-10">
           <div className="shrink-0">
-            <img 
-              src={speakingPhoto} 
-              alt="Viktor speaking at a conference" 
-              className="w-52 h-52 md:w-64 md:h-64 object-cover rounded-xl"
+            <img
+              src={speakingPhoto}
+              alt="Viktor speaking at a conference"
+              className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-xl"
             />
           </div>
           <div className="flex-1">
@@ -23,7 +24,7 @@ const SpeakingSection = () => {
                   Public Speaker
                 </h2>
                 <p className="text-slate-300 max-w-xl">
-                  Presenting at AI conferences and meetups on topics including agentic systems, 
+                  Presenting at AI conferences and meetups on topics including agentic systems,
                   RAG pipelines, and AI-assisted development. 20+ talks delivered to audiences of 20-400 people.
                 </p>
               </div>

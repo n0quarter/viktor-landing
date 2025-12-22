@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Bot, Building2, Users, Brain } from "lucide-react";
+import { Bot, Building2, Users } from "lucide-react";
 
 interface Project {
   icon: React.ReactNode;
@@ -60,13 +60,13 @@ const AIProjects = () => {
       <div className="container max-w-6xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Current AI Projects
+            Recent AI Projects
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Building production-grade AI systems that solve real problems
+            During the last 3+ years I've built 5 production-grade genAI systems
           </p>
         </div>
-        
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <Card key={index} className="border border-border hover:border-primary/50 transition-colors">
@@ -91,7 +91,7 @@ const AIProjects = () => {
                 </ul>
                 <div className="flex flex-wrap gap-1.5">
                   {project.tech.map((t, i) => (
-                    <Badge key={i} variant="secondary" className="text-xs bg-primary/10 text-primary border-0">
+                    <Badge key={i} variant="secondary" className="text-xs bg-primary/10 text-primary border-0 hover:bg-sky-500/20 hover:text-sky-700 transition-colors cursor-default">
                       {t}
                     </Badge>
                   ))}
