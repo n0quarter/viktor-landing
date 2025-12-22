@@ -5,6 +5,7 @@ interface Project {
   logo: string;
   title: string;
   company: string;
+  url: string;
   period: string;
   description: string;
   highlights: string[];
@@ -16,6 +17,7 @@ const projects: Project[] = [
     logo: "/src/assets/projects/alteos_logo.svg",
     title: "AI Solutions",
     company: "alteos",
+    url: "https://www.alteos.com/",
     period: "2023 - 2024",
     description: "Enterprise AI solutions and consulting services.",
     highlights: [
@@ -29,6 +31,7 @@ const projects: Project[] = [
     logo: "/src/assets/projects/SuitePad_logo.png",
     title: "AI Concierge for Hotels",
     company: "SuitePad",
+    url: "https://www.suitepad.de/",
     period: "Aug 2024 - Present",
     description: "GenAI features transforming hotel guest experiences with intelligent concierge services.",
     highlights: [
@@ -42,6 +45,7 @@ const projects: Project[] = [
     logo: "/src/assets/projects/DocDolite_logo.png",
     title: "Multi-Modal AI Agents",
     company: "DocDolittle",
+    url: "https://doc.dolittle-ai.de/",
     period: "Aug 2025 - Present",
     description: "Building production-grade multi-step AI agents with RAG, voice, and text chat capabilities.",
     highlights: [
@@ -52,9 +56,24 @@ const projects: Project[] = [
     tech: ["RAG", "LLM", "Langchain", "Langsmith", "Python", "TypeScript", "AWS"],
   },
   {
+    logo: "/src/assets/projects/dolittle-ai.png",
+    title: "AI Platform",
+    company: "Dolittle AI",
+    url: "https://dolittle-ai.de/",
+    period: "2024 - Present",
+    description: "AI-powered platform and solutions.",
+    highlights: [
+      "AI platform development",
+      "Advanced AI features",
+      "Enterprise solutions",
+    ],
+    tech: ["AI/ML", "Python", "TypeScript"],
+  },
+  {
     logo: "/src/assets/projects/askSchmidt.jpeg",
     title: "AI Bot for Refugees",
     company: "Ukraine Refugee Support",
+    url: "https://www.askschmidt.de/",
     period: "Oct 2023 - Present",
     description: "GenAI bot helping Ukrainian refugees navigate German bureaucracy and documentation.",
     highlights: [
@@ -63,6 +82,20 @@ const projects: Project[] = [
       "Multi-language support",
     ],
     tech: ["RAG", "LLM", "React", "TypeScript", "Node.js", "AWS"],
+  },
+  {
+    logo: "/src/assets/projects/empion.svg",
+    title: "AI Solutions",
+    company: "empion",
+    url: "https://www.empion.io/",
+    period: "2023 - 2024",
+    description: "Enterprise AI solutions and implementations.",
+    highlights: [
+      "Custom AI development",
+      "Machine learning models",
+      "Production deployment",
+    ],
+    tech: ["AI/ML", "Python", "TensorFlow"],
   },
 ];
 
@@ -75,7 +108,7 @@ const AIProjects = () => {
             Recent AI Projects
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            During the last 3+ years I've built 4+ production-grade genAI systems
+            During the last 3+ years I've built 6+ production-grade genAI systems
           </p>
         </div>
 
@@ -83,12 +116,14 @@ const AIProjects = () => {
           {projects.map((project, index) => (
             <Card key={index} className="border border-border hover:border-primary/50 select-text">
               <CardHeader>
-                <div className="h-12 flex items-center justify-start mb-4">
+                <div className="h-10 flex items-center justify-start mb-4">
                   <img src={project.logo} alt={`${project.company} logo`} className="max-h-full max-w-full object-contain" draggable="false" />
                 </div>
                 <CardTitle className="text-xl">{project.title}</CardTitle>
                 <CardDescription>
-                  {project.company} · {project.period}
+                  <a href={project.url} target="_blank" rel="noopener noreferrer" className="text-primary/90 hover:text-primary underline decoration-primary/40 hover:decoration-primary transition-colors">
+                    {project.company}
+                  </a> · {project.period}
                 </CardDescription>
               </CardHeader>
               <CardContent>
