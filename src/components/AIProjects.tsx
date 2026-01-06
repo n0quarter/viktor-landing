@@ -114,7 +114,7 @@ const AIProjects = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
-            <Card key={index} className="border border-border hover:border-primary/50 select-text">
+            <Card key={index} className="border border-border select-text">
               <CardHeader>
                 <div className="h-10 flex items-center justify-start mb-4">
                   <img src={project.logo} alt={`${project.company} logo`} className="max-h-full max-w-full object-contain" draggable="false" />
@@ -138,7 +138,7 @@ const AIProjects = () => {
                 </ul>
                 <div className="flex flex-wrap gap-1.5">
                   {project.tech.map((t, i) => (
-                    <Badge key={i} variant="secondary" className="text-xs bg-primary/10 text-primary border-0">
+                    <Badge key={i} variant="secondary" className="text-xs bg-primary/10 text-primary border-0 cursor-default hover:bg-primary/10">
                       {t}
                     </Badge>
                   ))}

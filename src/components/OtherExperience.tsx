@@ -4,6 +4,7 @@ import istatLogo from "@/assets/companies/istat_logo.png";
 import timberbaseLogo from "@/assets/companies/timberbase_logo.webp";
 import uberblickLogo from "@/assets/companies/uberblick_logo.png";
 import vintLogo from "@/assets/companies/vint_logo.png";
+import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface ExperienceItem {
@@ -11,6 +12,8 @@ interface ExperienceItem {
   title: string;
   company: string;
   description: string;
+  highlights: string[];
+  tech: string[];
   logo?: string;
   url?: string;
   statusLabel?: string;
@@ -22,7 +25,13 @@ const experiences: ExperienceItem[] = [
     period: "2020 – 2023",
     title: "Hands-on CTO & Co-founder",
     company: "TimberBase",
-    description: "Built gobal B2B timber trade marketplace (0→1). CI/CD, clean architecture, team mentoring.",
+    description: "Global B2B timber trade marketplace from zero to one.",
+    highlights: [
+      "Designed and scaled marketplace architecture",
+      "Established CI/CD & clean architecture patterns",
+      "Mentored engineering team on best practices",
+    ],
+    tech: ["TypeScript", "React", "Redux", "PostgreSQL", "AWS", "Terraform", "Kotlin"],
     logo: timberbaseLogo,
     url: "https://timberbase.com/",
     statusLabel: "Acquired by UFP",
@@ -32,7 +41,13 @@ const experiences: ExperienceItem[] = [
     period: "2017 – 2020",
     title: "Hands-on CTO & Co-founder",
     company: "Uberblick",
-    description: "Hotel communication app. Full MVP (Web+iOS+Android) in 3 months. React Native, AWS.",
+    description: "Internal communication app for hotels.",
+    highlights: [
+      "Delivered full MVP in 3 months (0 to production)",
+      "Led React Native mobile app & AWS backend",
+      "Defined product roadmap & agile processes",
+    ],
+    tech: ["React Native", "Redux", "Kotlin", "PostgreSQL", "AWS", "Firebase"],
     logo: uberblickLogo,
     url: "https://uberblick.io/",
     statusLabel: "Active",
@@ -42,7 +57,13 @@ const experiences: ExperienceItem[] = [
     period: "2014 – 2017",
     title: "Software Architect",
     company: "Bonial International Group",
-    description: "Led iOS, Android, React Native teams. System design, clean architecture, CI/CD.",
+    description: "Mobile engineering leadership and system architecture.",
+    highlights: [
+      "Led iOS, Android, React Native teams",
+      "Designed systems & software architecture",
+      "Fostered clean architecture & CI best practices",
+    ],
+    tech: ["Swift", "React Native", "Redux", "AWS", "iOS", "Android"],
     logo: bonialLogo,
     url: "https://www.bonial.com/",
     statusLabel: "Active",
@@ -52,7 +73,13 @@ const experiences: ExperienceItem[] = [
     period: "2011 – 2013",
     title: "CTO & Founder",
     company: "asdCode Mobile Agency",
-    description: "Team of 5. Project management, mobile development, agile delivery.",
+    description: "Mobile development agency with team of 5.",
+    highlights: [
+      "Led team of 5 developers",
+      "Project management & agile transformation",
+      "Architecture, implementation & delivery",
+    ],
+    tech: ["iOS", "Objective-C", "UIKit", "Git"],
     logo: asdcodeLogo,
     statusLabel: "Closed",
     statusType: "closed",
@@ -61,7 +88,13 @@ const experiences: ExperienceItem[] = [
     period: "2010 – 2013",
     title: "CTO & Co-founder",
     company: "iStat24 Call-Tracking",
-    description: "20+ conference presentations. Customer development, Scrum introduction.",
+    description: "Call tracking SaaS platform.",
+    highlights: [
+      "~20 presentations at industry conferences",
+      "Customer development & lean startup",
+      "Introduced Scrum to the team",
+    ],
+    tech: ["Ruby", "Perl", "PostgreSQL", "Redis", "AWS"],
     logo: istatLogo,
     url: "https://istat24.com/",
     statusLabel: "Live",
@@ -71,7 +104,13 @@ const experiences: ExperienceItem[] = [
     period: "2006 – 2012",
     title: "CTO & Co-founder",
     company: "Vint.com.ua e-commerce",
-    description: "Built e-commerce from scratch. Web, back-office, ERP, iOS & Android apps.",
+    description: "E-commerce platform built from scratch.",
+    highlights: [
+      "Developed website, back-office & internal ERP",
+      "Hired and managed team (up to 10 employees)",
+      "Created iOS & Android apps",
+    ],
+    tech: ["Perl", "MySQL", "Apache", "Objective-C", "iOS"],
     logo: vintLogo,
     url: "https://vint.com.ua/",
     statusLabel: "Operating",
@@ -114,7 +153,7 @@ const OtherExperience = () => {
     const showDot = exp.statusType === "operational" || exp.statusType === "acquired";
 
     return (
-      <Card key={index} className="border border-border hover:border-primary/50 transition-colors select-text overflow-hidden">
+      <Card key={index} className="border border-border select-text overflow-hidden flex flex-col">
         <CardHeader>
           <div className="h-12 flex items-center justify-start mb-4">
             {exp.logo && (
@@ -143,8 +182,23 @@ const OtherExperience = () => {
             {" · "}{exp.period}
           </CardDescription>
         </CardHeader>
-        <CardContent>
-          <p className="text-sm text-muted-foreground">{exp.description}</p>
+        <CardContent className="flex-grow">
+          <p className="text-muted-foreground mb-4">{exp.description}</p>
+          <ul className="space-y-2 mb-4">
+            {exp.highlights.map((highlight, i) => (
+              <li key={i} className="flex items-start gap-2 text-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></span>
+                <span className="text-foreground/80">{highlight}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="flex flex-wrap gap-1.5">
+            {exp.tech.map((t, i) => (
+              <Badge key={i} variant="secondary" className="text-xs bg-primary/10 text-primary border-0 cursor-default hover:bg-primary/10">
+                {t}
+              </Badge>
+            ))}
+          </div>
         </CardContent>
         {exp.company !== "Bonial International Group" && (
           <CardFooter className={`${statusStyles.bgColor} border-t ${statusStyles.borderColor} py-2 px-6 flex items-center gap-1.5 text-[10px] font-medium`}>
