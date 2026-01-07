@@ -237,12 +237,14 @@ const OtherExperience = () => {
     <section className="py-20 bg-accent/30">
       <div className="container max-w-6xl">
         <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
             Previous Experience
           </h2>
-          <p className="text-muted-foreground">
-          Over the past 18 years, I've founded and co-founded 5 companies. Four of them are still successfully operational, and the last one was acquired by a NASDAQ-listed U.S. company.
-          </p>
+          <div className="max-w-fit mx-auto text-left text-muted-foreground space-y-1">
+            <p>Over the past 18 years, I've founded and co-founded 5 companies.</p>
+            <p>Four of them are still successfully operational,</p>
+            <p>and the last one was acquired by UFP (a NASDAQ-listed U.S. company).</p>
+          </div>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

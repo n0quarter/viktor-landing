@@ -1,3 +1,9 @@
+import alteosLogo from "@/assets/projects/alteos_logo.svg";
+import askSchmidtLogo from "@/assets/projects/askSchmidt.jpeg";
+import docDoliteLogo from "@/assets/projects/DocDolite_logo.png";
+import dolittleAiLogo from "@/assets/projects/dolittle-ai.png";
+import empionLogo from "@/assets/projects/empion.svg";
+import suitePadLogo from "@/assets/projects/SuitePad_logo.png";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -14,7 +20,7 @@ interface Project {
 
 const projects: Project[] = [
   {
-    logo: "/src/assets/projects/alteos_logo.svg",
+    logo: alteosLogo,
     title: "AI Solutions",
     company: "alteos",
     url: "https://www.alteos.com/",
@@ -28,7 +34,7 @@ const projects: Project[] = [
     tech: ["AI/ML", "Python", "Cloud Services"],
   },
   {
-    logo: "/src/assets/projects/SuitePad_logo.png",
+    logo: suitePadLogo,
     title: "AI Concierge for Hotels",
     company: "SuitePad",
     url: "https://www.suitepad.de/",
@@ -42,7 +48,7 @@ const projects: Project[] = [
     tech: ["RAG", "LLM", "Langchain", "Mastra", "Ruby on Rails", "AWS Fargate"],
   },
   {
-    logo: "/src/assets/projects/DocDolite_logo.png",
+    logo: docDoliteLogo,
     title: "Multi-Modal AI Agents",
     company: "DocDolittle",
     url: "https://doc.dolittle-ai.de/",
@@ -56,7 +62,7 @@ const projects: Project[] = [
     tech: ["RAG", "LLM", "Langchain", "Langsmith", "Python", "TypeScript", "AWS"],
   },
   {
-    logo: "/src/assets/projects/dolittle-ai.png",
+    logo: dolittleAiLogo,
     title: "AI Platform",
     company: "Dolittle AI",
     url: "https://dolittle-ai.de/",
@@ -70,7 +76,7 @@ const projects: Project[] = [
     tech: ["AI/ML", "Python", "TypeScript"],
   },
   {
-    logo: "/src/assets/projects/askSchmidt.jpeg",
+    logo: askSchmidtLogo,
     title: "AI Bot for Refugees",
     company: "Ukraine Refugee Support",
     url: "https://www.askschmidt.de/",
@@ -84,7 +90,7 @@ const projects: Project[] = [
     tech: ["RAG", "LLM", "React", "TypeScript", "Node.js", "AWS"],
   },
   {
-    logo: "/src/assets/projects/empion.svg",
+    logo: empionLogo,
     title: "AI Solutions",
     company: "empion",
     url: "https://www.empion.io/",
