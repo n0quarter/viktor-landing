@@ -150,7 +150,7 @@ const OtherExperience = () => {
     };
 
     const statusStyles = getStatusBarStyles();
-    const showDot = exp.statusType === "operational" || exp.statusType === "acquired";
+    // const showDot = exp.statusType === "operational" || exp.statusType === "acquired";
 
     return (
       <Card key={index} className="border border-border select-text overflow-hidden flex flex-col">
@@ -241,7 +241,7 @@ const OtherExperience = () => {
             Previous Experience
           </h2>
           <p className="text-muted-foreground">
-            18 years building products, leading teams, and scaling companies
+          Over the past 18 years, I've founded and co-founded 5 companies. Four of them are still successfully operational, and the last one was acquired by a NASDAQ-listed U.S. company.
           </p>
         </div>
 
