@@ -1,6 +1,23 @@
-import { Globe, GraduationCap, Mail, MapPin, Phone } from "lucide-react";
+import { CONTACT_INFO } from "@/lib/constants";
+import { Check, Copy, Globe, GraduationCap, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { useState } from "react";
 
 const Footer = () => {
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState(false);
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText(CONTACT_INFO.email);
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2000);
+  };
+
+  const copyPhone = () => {
+    navigator.clipboard.writeText(CONTACT_INFO.phone);
+    setCopiedPhone(true);
+    setTimeout(() => setCopiedPhone(false), 2000);
+  };
+
   return (
     <footer className="py-16 bg-foreground text-background">
       <div className="container max-w-6xl">
@@ -9,20 +26,45 @@ const Footer = () => {
           <div>
             <h2 className="text-xl font-bold mb-6">Get in Touch</h2>
             <div className="space-y-4">
-              {/* <a href="mailto:megaletterbox@gmail.com" className="flex items-center gap-3 text-background/80 hover:text-background transition-colors"> */}
-              <div className="flex items-center gap-3 text-background/80 hover:text-background transition-colors">
-                <Mail className="w-5 h-5" />
-                megaletterbox@gmail.com
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 text-background/80">
+                  <Mail className="w-5 h-5" />
+                  <span>{CONTACT_INFO.email}</span>
+                  <button
+                    onClick={copyEmail}
+                    className="hover:text-background transition-colors p-1"
+                    title="Copy email"
+                  >
+                    {copiedEmail ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4 opacity-50" />}
+                  </button>
+                </div>
               </div>
-              {/* </a> */}
-              <a href="tel:+4915754278950" className="flex items-center gap-3 text-background/80 hover:text-background transition-colors">
-                <Phone className="w-5 h-5" />
-                +49 15754278950
-              </a>
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 text-background/80">
+                  <Phone className="w-5 h-5" />
+                  <span>{CONTACT_INFO.phone}</span>
+                  <button
+                    onClick={copyPhone}
+                    className="hover:text-background transition-colors p-1"
+                    title="Copy phone"
+                  >
+                    {copiedPhone ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4 opacity-50" />}
+                  </button>
+                </div>
+              </div>
               <div className="flex items-center gap-3 text-background/80">
                 <MapPin className="w-5 h-5" />
-                Berlin, Germany
+                {CONTACT_INFO.location}
               </div>
+              <a
+                href={CONTACT_INFO.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-background/80 hover:text-background transition-colors"
+              >
+                <Linkedin className="w-5 h-5" />
+                <span>LinkedIn</span>
+              </a>
             </div>
           </div>
 

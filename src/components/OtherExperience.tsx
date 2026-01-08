@@ -163,24 +163,18 @@ const OtherExperience = () => {
           bgColor: "bg-blue-50/50",
           borderColor: "border-blue-500/20",
           textColor: "text-blue-600",
-          dotBg: "bg-blue-400",
-          dotFill: "bg-blue-500",
         };
       } else if (exp.statusType === "closed") {
         return {
           bgColor: "bg-muted/30",
           borderColor: "border-muted-foreground/10",
           textColor: "text-muted-foreground/60",
-          dotBg: "",
-          dotFill: "",
         };
       } else {
         return {
           bgColor: "bg-emerald-50/50",
           borderColor: "border-emerald-500/20",
           textColor: "text-emerald-600",
-          dotBg: "bg-emerald-400",
-          dotFill: "bg-emerald-500",
         };
       }
     };
@@ -277,7 +271,7 @@ const OtherExperience = () => {
   };
 
   return (
-    <section className="py-20 bg-accent/30">
+    <section id="experience" className="py-20 bg-accent/30">
       <div className="container max-w-6xl">
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">

@@ -1,10 +1,9 @@
-// Another test comment
-import { Mic, Calendar, MapPin } from "lucide-react";
 import speakingPhoto from "@/assets/viktor-speaking.png";
+import { Calendar, MapPin, Mic } from "lucide-react";
 
 const SpeakingSection = () => {
   return (
-    <section className="py-12 bg-slate-800 text-white">
+    <section id="speaking" className="py-12 bg-slate-800 text-white">
       <div className="container max-w-6xl">
         <div className="flex flex-col md:flex-row md:items-center gap-10">
           <div className="shrink-0">
@@ -29,7 +28,7 @@ const SpeakingSection = () => {
                 </p>
               </div>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4 text-sm ml-18">
+            <div className="flex flex-col sm:flex-row gap-4 text-sm md:ml-[72px]">
               <div className="flex items-center gap-2 text-slate-400">
                 <Calendar className="w-4 h-4" />
                 <span>Available for speaking</span>

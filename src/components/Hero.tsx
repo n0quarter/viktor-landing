@@ -1,30 +1,21 @@
 import bgImage from "@/assets/bg8.png";
 import viktorPhoto from "@/assets/viktor.png";
-import { Button } from "@/components/ui/button";
-import { Check, Copy, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { CONTACT_INFO } from "@/lib/constants";
+import { Check, Copy, Mail, MapPin } from "lucide-react";
 import { useState } from "react";
 
 const Hero = () => {
   const [copiedEmail, setCopiedEmail] = useState(false);
-  const [copiedPhone, setCopiedPhone] = useState(false);
-  const email = "viktor@shcherban.com";
-  const phone = "+49 15754278950";
 
   const copyEmail = () => {
-    navigator.clipboard.writeText(email);
+    navigator.clipboard.writeText(CONTACT_INFO.email);
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2000);
   };
 
-  const copyPhone = () => {
-    navigator.clipboard.writeText(phone);
-    setCopiedPhone(true);
-    setTimeout(() => setCopiedPhone(false), 2000);
-  };
-
   return (
     <section
-      className="py-12 md:py-15 text-white"
+      className="py-12 md:py-12 text-white"
       style={{
         backgroundImage: `url(${bgImage})`,
         backgroundSize: 'cover',
@@ -33,73 +24,52 @@ const Hero = () => {
       }}
     >
       <div className="container max-w-6xl">
-        <div className="grid md:grid-cols-3 gap-12 items-center">
+        <div className="grid md:grid-cols-3 gap-12 items-start">
           <div className="md:col-span-2">
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
-              <span className="text-3xl md:text-4xl lg:text-5xl block mb-2">Viktor Shcherban</span>
+              <span className="text-3xl md:text-4xl lg:text-5xl block mb-2">
+                Viktor Shcherban
+                </span>
               <span className="text-primary">
                 {/* keep it here commented for now */}
                 {/* AI Product Engineer or Full-Stack GenAI Engineer */}
-                AI Architect &<br />
-                Full-Stack Developer
+                AI Engineer & Full-Stack Developer
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed">
-              18 years of experience building software. Expert in designing agentic systems,
+            <ul className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed space-y-2 list-disc list-inside">
+
+                           <p className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed">
+              Version 1:<br /> 18 years of experience building software. Expert in designing multi-modal AI Agents,
               RAG pipelines, and scalable architecture. Taking complex AI products from concept
-              to production (0→1). Former CTO with deep experience mentoring teams.
+              to production (0→1). Former CTO.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Button size="lg" className="gap-2" onClick={copyEmail}>
-                <Mail className="w-4 h-4" />
-                Contact Me
-              </Button>
-            </div>
-
-            <div className="space-y-2 text-sm text-slate-300">
-              <div className="flex flex-wrap gap-4">
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4" />
-                  <span>Berlin, Germany</span>
-                </div>
-                <a
-                  href="https://www.linkedin.com/in/shcherbanviktor/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 hover:text-white transition-colors"
-                >
-                  <Linkedin className="w-4 h-4" />
-                  <span>LinkedIn</span>
-                </a>
-              </div>
-              <div className="flex flex-wrap gap-4 items-center">
-                <button
-                  onClick={copyPhone}
-                  className="flex items-center gap-2 hover:text-white transition-colors"
-                >
-                  <Phone className="w-4 h-4" />
-                  <span>{phone}</span>
-                  {copiedPhone ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
-                </button>
-                {copiedPhone && (
-                  <span className="text-green-400 text-xs font-medium animate-in fade-in slide-in-from-left-2 duration-300">
-                    Copied!
+            Version 2:
+              <li>
+                I build gen-AI products from concept to production (0→1)
+                <span className="block text-base text-slate-400 ml-8">
+                  (multi-modal AI agents(text/voice), RAG pipelines, LLM Evals)
                   </span>
-                )}
+              </li>
+              <li>I've been building software for 18 years</li>
+              <li>As a former startups' CTO, I specialize on fast yet robust MVPs</li>
+            </ul>
+
+            <div className="flex items-center gap-6 text-sm text-slate-300">
+              <div className="flex items-center gap-2">
+                <Mail className="w-4 h-4" />
+                <span>{CONTACT_INFO.email}</span>
                 <button
                   onClick={copyEmail}
-                  className="flex items-center gap-2 hover:text-white transition-colors"
+                  className="hover:text-white transition-colors p-1"
+                  title="Copy email"
                 >
-                  <Mail className="w-4 h-4" />
-                  <span>{email}</span>
                   {copiedEmail ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
                 </button>
-                {copiedEmail && (
-                  <span className="text-green-400 text-xs font-medium animate-in fade-in slide-in-from-left-2 duration-300">
-                    Copied!
-                  </span>
-                )}
+              </div>
+              <div className="flex items-center gap-2">
+                <MapPin className="w-4 h-4" />
+                <span>{CONTACT_INFO.location}</span>
               </div>
             </div>
           </div>

@@ -1,9 +1,9 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Brain, Zap, Code2, Terminal, Users, ArrowRight } from "lucide-react";
 import jensPhoto from "@/assets/jens.png";
-import timPhoto from "@/assets/tim.png";
 import julioPhoto from "@/assets/julio.jpeg";
+import timPhoto from "@/assets/tim.png";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { ArrowRight, Brain, Code2, Terminal, Users, Zap } from "lucide-react";
 
 const features = [
   {
@@ -51,7 +51,7 @@ const testimonials = [
 
 const WorkshopSection = () => {
   return (
-    <section className="py-20 bg-muted/30">
+    <section id="workshops" className="py-20 bg-muted/30">
       <div className="container max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left: Workshop Info */}
