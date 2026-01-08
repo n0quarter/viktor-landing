@@ -18,33 +18,38 @@ interface ExperienceItem {
   url?: string;
   statusLabel?: string;
   statusType?: "acquired" | "operational" | "closed";
+  founderRole?: "Founder" | "Co-founder" | "Employee";
+  country: "de" | "ua";
 }
 
 const experiences: ExperienceItem[] = [
   {
     period: "2020 – 2023",
-    title: "Hands-on CTO & Co-founder",
+    title: "Hands-on CTO",
+    founderRole: "Co-founder",
     company: "TimberBase",
-    description: "Global B2B timber trade marketplace from zero to one.",
+    description: "Global B2B marketplace",
     highlights: [
-      "Designed and scaled marketplace architecture",
-      "Established CI/CD & clean architecture patterns",
-      "Mentored engineering team on best practices",
+      "Designed and scaled the global marketplace architecture (0->1)",
+      "Established technical standards (CI/CD, clean architecture)",
+      "Reliable features delivey for hypothesys validation",
     ],
     tech: ["TypeScript", "React", "Redux", "PostgreSQL", "AWS", "Terraform", "Kotlin"],
     logo: timberbaseLogo,
     url: "https://timberbase.com/",
     statusLabel: "Acquired by UFP",
     statusType: "acquired",
+    country: "de",
   },
   {
     period: "2017 – 2020",
-    title: "Hands-on CTO & Co-founder",
+    title: "Hands-on CTO",
+    founderRole: "Co-founder",
     company: "Uberblick",
     description: "Internal communication app for hotels.",
     highlights: [
-      "Delivered full MVP in 3 months (0 to production)",
-      "Led React Native mobile app & AWS backend",
+      "Delivered full MVP (Web+iOS+Android) in 2 months (pre-AI era)",
+      "Continuous iterations",
       "Defined product roadmap & agile processes",
     ],
     tech: ["React Native", "Redux", "Kotlin", "PostgreSQL", "AWS", "Firebase"],
@@ -52,10 +57,12 @@ const experiences: ExperienceItem[] = [
     url: "https://uberblick.io/",
     statusLabel: "Active",
     statusType: "operational",
+    country: "de",
   },
   {
     period: "2014 – 2017",
     title: "Software Architect",
+    founderRole: "Employee",
     company: "Bonial International Group",
     description: "Mobile engineering leadership and system architecture.",
     highlights: [
@@ -68,10 +75,12 @@ const experiences: ExperienceItem[] = [
     url: "https://www.bonial.com/",
     statusLabel: "Active",
     statusType: "operational",
+    country: "de",
   },
   {
     period: "2011 – 2013",
-    title: "CTO & Founder",
+    title: "CEO/CTO",
+    founderRole: "Founder",
     company: "asdCode Mobile Agency",
     description: "Mobile development agency with team of 5.",
     highlights: [
@@ -83,26 +92,31 @@ const experiences: ExperienceItem[] = [
     logo: asdcodeLogo,
     statusLabel: "Closed",
     statusType: "closed",
+    country: "ua",
   },
   {
     period: "2010 – 2013",
-    title: "CTO & Co-founder",
+    title: "CTO",
+    founderRole: "Co-founder",
     company: "iStat24 Call-Tracking",
     description: "Call tracking SaaS platform.",
     highlights: [
       "~20 presentations at industry conferences",
       "Customer development & lean startup",
       "Introduced Scrum to the team",
+      "Managed software team of 6",
     ],
     tech: ["Ruby", "Perl", "PostgreSQL", "Redis", "AWS"],
     logo: istatLogo,
     url: "https://istat24.com/",
     statusLabel: "Live",
     statusType: "operational",
+    country: "ua",
   },
   {
     period: "2006 – 2012",
-    title: "CTO & Co-founder",
+    title: "CTO",
+    founderRole: "Co-founder",
     company: "Vint.com.ua e-commerce",
     description: "E-commerce platform built from scratch.",
     highlights: [
@@ -115,8 +129,30 @@ const experiences: ExperienceItem[] = [
     url: "https://vint.com.ua/",
     statusLabel: "Operating",
     statusType: "operational",
+    country: "ua",
   },
 ];
+
+const FounderSticker = ({ role }: { role: string }) => {
+  const wrapperClass = "ml-2.5 inline-flex items-center align-middle";
+
+  if (role === "Employee") {
+    return (
+      <span className={`${wrapperClass} gap-2.5 text-foreground/80 text-xs font-bold`}>
+        <span className="w-2 h-2 rounded-full bg-primary/60" />
+        {role}
+      </span>
+    );
+  }
+
+  return (
+    <span className={`${wrapperClass} relative px-3 py-0.5`}>
+      <span className="absolute inset-0 bg-primary/15 -skew-x-12 rounded translate-x-0.5" />
+      <span className="absolute inset-0 bg-primary/20 -skew-x-12 rounded" />
+      <span className="relative text-primary text-[11px] font-black uppercase tracking-wider">{role}</span>
+    </span>
+  );
+};
 
 const OtherExperience = () => {
   const renderCard = (exp: ExperienceItem, index: number) => {
@@ -150,12 +186,13 @@ const OtherExperience = () => {
     };
 
     const statusStyles = getStatusBarStyles();
-    // const showDot = exp.statusType === "operational" || exp.statusType === "acquired";
+
+    const countryFlag = exp.country === "de" ? "🇩🇪" : "🇺🇦";
 
     return (
-      <Card key={index} className="border border-border select-text overflow-hidden flex flex-col">
+      <Card key={index} className="border border-border select-text overflow-hidden flex flex-col relative">
         <CardHeader>
-          <div className="h-12 flex items-center justify-start mb-4">
+          <div className="h-12 flex items-center justify-between mb-4">
             {exp.logo && (
               <img
                 src={exp.logo}
@@ -164,8 +201,14 @@ const OtherExperience = () => {
                 draggable="false"
               />
             )}
+            <span className="text-xl">{countryFlag}</span>
           </div>
-          <CardTitle className="text-lg">{exp.title}</CardTitle>
+
+          <CardTitle className="text-lg flex flex-wrap items-center gap-y-1">
+            {exp.title}
+            {exp.founderRole && <FounderSticker role={exp.founderRole} />}
+          </CardTitle>
+
           <CardDescription>
             {exp.url ? (
               <a
@@ -201,7 +244,7 @@ const OtherExperience = () => {
           </div>
         </CardContent>
         {exp.company !== "Bonial International Group" && (
-          <CardFooter className={`${statusStyles.bgColor} border-t ${statusStyles.borderColor} py-2 px-6 flex items-center gap-1.5 text-[10px] font-medium`}>
+          <CardFooter className={`${statusStyles.bgColor} border-t ${statusStyles.borderColor} py-2 px-6 flex items-center gap-1.5 text-xs font-medium`}>
             {exp.statusType === "closed" && <span className={statusStyles.textColor}>Closed</span>}
             {exp.statusType === "operational" && (
               <>

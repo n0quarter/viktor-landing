@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, GraduationCap, Globe } from "lucide-react";
+import { Globe, GraduationCap, Mail, MapPin, Phone } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -9,10 +9,12 @@ const Footer = () => {
           <div>
             <h2 className="text-xl font-bold mb-6">Get in Touch</h2>
             <div className="space-y-4">
-              <a href="mailto:megaletterbox@gmail.com" className="flex items-center gap-3 text-background/80 hover:text-background transition-colors">
+              {/* <a href="mailto:megaletterbox@gmail.com" className="flex items-center gap-3 text-background/80 hover:text-background transition-colors"> */}
+              <div className="flex items-center gap-3 text-background/80 hover:text-background transition-colors">
                 <Mail className="w-5 h-5" />
                 megaletterbox@gmail.com
-              </a>
+              </div>
+              {/* </a> */}
               <a href="tel:+4915754278950" className="flex items-center gap-3 text-background/80 hover:text-background transition-colors">
                 <Phone className="w-5 h-5" />
                 +49 15754278950
@@ -23,7 +25,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Education */}
           <div>
             <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
@@ -36,7 +38,7 @@ const Footer = () => {
               <p className="text-background/70">2000 - 2005</p>
             </div>
           </div>
-          
+
           {/* Languages */}
           <div>
             <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
@@ -50,9 +52,9 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="border-t border-background/20 mt-12 pt-8 text-center text-background/60 text-sm">
-          <p>© {new Date().getFullYear()} Viktor Shcherban. Available for AI consulting & development projects.</p>
+          <p>© {new Date().getFullYear()} Viktor Shcherban</p>
         </div>
       </div>
     </footer>
