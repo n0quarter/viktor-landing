@@ -20,36 +20,36 @@ interface Project {
 
 const projects: Project[] = [
   {
-    logo: alteosLogo,
-    title: "AI Solutions",
-    company: "alteos",
-    url: "https://www.alteos.com/",
-    period: "2023 - 2024",
-    description: "Enterprise AI solutions and consulting services.",
-    highlights: [
-      "Custom AI implementations",
-      "Enterprise integrations",
-      "AI strategy consulting",
-    ],
-    tech: ["AI/ML", "Python", "Cloud Services"],
-  },
-  {
     logo: suitePadLogo,
     title: "AI Concierge for Hotels",
     company: "SuitePad",
     url: "https://www.suitepad.de/",
     period: "Aug 2024 - Present",
-    description: "GenAI features transforming hotel guest experiences with intelligent concierge services.",
+    description: "Text & Voice AI chatbot with hotel's knowledge for hotel guests ",
     highlights: [
-      "RAG-powered guest assistance",
-      "Real-time recommendations",
-      "Multi-language support",
+      "Hotel's knowledge RAG",
+      "Personalized recommendations",
+      "AI Voice from different vendors",
     ],
     tech: ["RAG", "LLM", "Langchain", "Mastra", "Ruby on Rails", "AWS Fargate"],
   },
   {
+    logo: alteosLogo,
+    title: "AI Solutions for Insurance",
+    company: "Alteos",
+    url: "https://www.alteos.com/",
+    period: "2025",
+    description: "Enterprise AI solutions for insurance industry",
+    highlights: [
+      "AI strategy consulting",
+      "Enterprise integrations",
+      "Custom AI implementations",
+    ],
+    tech: ["Langchain", "Mastra", "Langfuse"],
+  },
+  {
     logo: docDoliteLogo,
-    title: "Multi-Modal AI Agents",
+    title: "Voice AI Receptionist",
     company: "DocDolittle",
     url: "https://doc.dolittle-ai.de/",
     period: "Aug 2025 - Present",
@@ -63,7 +63,7 @@ const projects: Project[] = [
   },
   {
     logo: dolittleAiLogo,
-    title: "AI Platform",
+    title: "Multi-Modal AI Agents Platform",
     company: "Dolittle AI",
     url: "https://dolittle-ai.de/",
     period: "2024 - Present",
@@ -77,11 +77,11 @@ const projects: Project[] = [
   },
   {
     logo: askSchmidtLogo,
-    title: "AI Bot for Refugees",
+    title: "Telegram AI Bot for Refugees",
     company: "Ukraine Refugee Support",
     url: "https://www.askschmidt.de/",
     period: "Oct 2023 - Present",
-    description: "GenAI bot helping Ukrainian refugees navigate German bureaucracy and documentation.",
+    description: "GenAI bot helping Ukrainian refugees navigate German bureaucracy.",
     highlights: [
       "Bureaucracy navigation assistant",
       "Document guidance",
@@ -94,7 +94,7 @@ const projects: Project[] = [
     title: "AI Solutions",
     company: "empion",
     url: "https://www.empion.io/",
-    period: "2023 - 2024",
+    period: "2025",
     description: "Enterprise AI solutions and implementations.",
     highlights: [
       "Custom AI development",
@@ -114,7 +114,7 @@ const AIProjects = () => {
             Recent AI Projects
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            During the last 3+ years I've built 6+ production-grade genAI systems
+            During the last 3+ years I've built 6 production-grade genAI systems
           </p>
         </div>
 
