@@ -7,24 +7,24 @@ import { ArrowRight, Brain, Code2, Terminal, Users, Zap } from "lucide-react";
 
 const features = [
   {
+    icon: <Code2 className="w-5 h-5" />,
+    title: "Coding Agents/IDE",
+    description: "Hands-on coding with Claude Code, Codex CLI, Cursor Agent. AI-assisted coding in JetBrains IDEs. TDD and Spec-driven development workflows",
+  },
+  {
     icon: <Brain className="w-5 h-5" />,
-    title: "Advanced Prompting Techniques",
-    description: "Learn the difference between vibe coding (bad) and AI-assisted coding (good). Master Chain-of-Thought, Tree-of-Thought, and reflection-based prompting.",
+    title: "AI Landscape & Advanced Prompting",
+    description: "Vibe coding (bad) vs AI-assisted coding (good). Understanding LLM architecture -> Advanced Prompting",
   },
   {
     icon: <Zap className="w-5 h-5" />,
     title: "Context Engineering",
-    description: "Master techniques for steering coding agents and thinking models. Deep dive into Claude Code, Cursor, GPT-5.1, Gemini, Sonnet 4.5, and cutting-edge agentic AI tools.",
-  },
-  {
-    icon: <Code2 className="w-5 h-5" />,
-    title: "IDE Mastery",
-    description: "Master advanced Cursor Rules and Claude.md files, plus AI-assisted development in Claude Code/Cursor/JetBrains IDEs.",
+    description: "Techniques for steering coding agents and reasoning models. Creating custom AI tools for coding (hands-on)",
   },
   {
     icon: <Terminal className="w-5 h-5" />,
     title: "Best Practices & Anti-patterns",
-    description: "Understand context engineering, guardrails for coding agents, and how to avoid common AI development pitfalls.",
+    description: "Understand LLM limitations, halucinations, and how to avoid common AI development pitfalls.",
   },
 ];
 
@@ -64,8 +64,8 @@ const WorkshopSection = () => {
               Author of Gen AI Workshop<br />for Developers
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Master AI-assisted development with coding agents, advanced Cursor Rules, and Claude Code skills.
-              Learn enterprise-grade setup, advanced prompting, and best practices for AI-powered workflows.
+              Teacning developers AI-assisted coding with agents (Cursor, Claude Code) and IDEs.
+              Hands-on practice: Enterprise-grade setup, custom tools, context engineering, and best practices.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-4 mb-8">

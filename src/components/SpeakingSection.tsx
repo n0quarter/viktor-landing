@@ -23,8 +23,7 @@ const SpeakingSection = () => {
                   Public Speaker
                 </h2>
                 <p className="text-slate-300 max-w-xl">
-                  Presenting at AI conferences and meetups on topics including agentic systems,
-                  RAG pipelines, and AI-assisted development. 20+ talks delivered to audiences of 20-400 people.
+                  Presenting at AI conferences and meetups on topics like agentic systems and AI-assisted coding. 20+ talks delivered over 18 years to audiences of 20-400.
                 </p>
               </div>
             </div>
