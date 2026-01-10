@@ -37,32 +37,43 @@ const Hero = () => {
                 AI Engineer & Full-Stack Developer
               </span>
             </h1>
-            <ul className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed space-y-2 list-disc list-inside">
+            <div className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed space-y-8">
+              <div>
+                Version 1:<br />
+                18+ years of experience building software. Expert in designing text & voice AI Agents,
+                RAG pipelines, and scalable architecture. Taking complex AI products from concept
+                to production (0→1). Former CTO.
+              </div>
 
-                           <p className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed">
-              Version 1:<br />
-              18+ years of experience building software. Expert in designing text & voice AI Agents,
-              RAG pipelines, and scalable architecture. Taking complex AI products from concept
-              to production (0→1). Former CTO.
-            </p>
+              <div>
+                Version 2:
+                <ul className="list-disc list-inside mt-2 space-y-2">
+                  <li>
+                    3+ year of experience building gen-AI products
+                    <span className="block text-base text-slate-400 ml-8">
+                      Text & Voice/Phone Agents · RAG Pipelines · LLM Evals
+                    </span>
+                  </li>
+                  <li>18+ years of experience building software</li>
+                  <li>As a former startups' CTO, I specialize on fast yet robust MVPs</li>
+                </ul>
+              </div>
 
-            <p className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed">
-              Version 2:<br />
-              18+ years of experience building software. Expert in designing text & voice AI Agents,
-              RAG pipelines, and scalable architecture. Taking complex AI products from concept
-              to production (0→1). Former CTO.
-            </p>
+              <div>
+                Version 3:
+                <ul className="list-disc list-inside mt-2 space-y-2">
+                  <li>
+                    I build gen-AI products from concept to production (0→1)
+                    <span className="block text-base text-slate-400 ml-8">
+                      (multi-modal AI agents(text/voice), RAG pipelines, LLM Evals)
+                    </span>
+                  </li>
+                  <li>I've been building software for 18+ years</li>
+                  <li>As a former startups' CTO, I specialize on fast yet robust MVPs</li>
+                </ul>
+              </div>
+            </div>
 
-            Version 3:
-              <li>
-                I build gen-AI products from concept to production (0→1)
-                <span className="block text-base text-slate-400 ml-8">
-                  (multi-modal AI agents(text/voice), RAG pipelines, LLM Evals)
-                  </span>
-              </li>
-              <li>I've been building software for 18+ years</li>
-              <li>As a former startups' CTO, I specialize on fast yet robust MVPs</li>
-            </ul>
 
             <div className="flex items-center gap-6 text-sm text-slate-300">
               <div className="flex items-center gap-2">
