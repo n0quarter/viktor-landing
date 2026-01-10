@@ -278,7 +278,7 @@ const OtherExperience = () => {
             Previous Experience
           </h2>
           <div className="max-w-fit mx-auto text-left text-muted-foreground space-y-1">
-            <p>Over the past 18 years, I've founded and co-founded 5 companies.</p>
+            <p>Over the past 18+ years, I've founded and co-founded 5 companies.</p>
             <p>Four of them are still successfully operational,</p>
             <p>and the last one was acquired by UFP (a NASDAQ-listed U.S. company).</p>
           </div>

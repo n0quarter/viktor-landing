@@ -40,7 +40,7 @@ const Hero = () => {
 
                            <p className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed">
               {/* Version 1:<br />  */}
-              18 years of experience building software. Expert in designing multi-modal AI Agents,
+              18+ years of experience building software. Expert in designing text & voice AI Agents,
               RAG pipelines, and scalable architecture. Taking complex AI products from concept
               to production (0→1). Former CTO.
             </p>
@@ -52,7 +52,7 @@ const Hero = () => {
                   (multi-modal AI agents(text/voice), RAG pipelines, LLM Evals)
                   </span>
               </li>
-              <li>I've been building software for 18 years</li>
+              <li>I've been building software for 18+ years</li>
               <li>As a former startups' CTO, I specialize on fast yet robust MVPs</li> */}
             </ul>
 
