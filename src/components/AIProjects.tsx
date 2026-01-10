@@ -1,4 +1,3 @@
-import alteosLogo from "@/assets/projects/alteos_logo.svg";
 import askSchmidtLogo from "@/assets/projects/askSchmidt.jpeg";
 import docDoliteLogo from "@/assets/projects/DocDolite_logo.png";
 import dolittleAiLogo from "@/assets/projects/dolittle-ai.png";
@@ -6,12 +5,14 @@ import empionLogo from "@/assets/projects/empion.svg";
 import suitePadLogo from "@/assets/projects/SuitePad_logo.png";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Building } from "lucide-react";
 
 interface Project {
-  logo: string;
+  logo?: string;
+  icon?: React.ReactNode;
   title: string;
   company: string;
-  url: string;
+  url?: string;
   period: string;
   description: string;
   highlights: string[];
@@ -34,10 +35,9 @@ const projects: Project[] = [
     tech: ["RAG", "LLM", "Evals", "Langchain", "Langsmith", "OpenAI Realtime API", "AWS Nova Somic", "Ruby on Rails", "AWS"],
   },
   {
-    logo: alteosLogo,
-    title: "AI Solutions for Insurance",
-    company: "Alteos",
-    url: "https://www.alteos.com/",
+    icon: <Building className="w-10 h-10 text-primary" />,
+    title: "AI Solutions for InsurTech",
+    company: "Leading Insurance Company",
     period: "2025",
     description: "Enterprise AI solutions for the insurance industry",
     highlights: [
@@ -123,13 +123,21 @@ const AIProjects = () => {
             <Card key={index} className="border border-border select-text">
               <CardHeader>
                 <div className="h-10 flex items-center justify-start mb-4">
-                  <img src={project.logo} alt={`${project.company} logo`} className="max-h-full max-w-full object-contain" draggable="false" />
+                  {project.logo ? (
+                    <img src={project.logo} alt={`${project.company} logo`} className="max-h-full max-w-full object-contain" draggable="false" />
+                  ) : (
+                    project.icon
+                  )}
                 </div>
                 <CardTitle className="text-xl">{project.title}</CardTitle>
                 <CardDescription>
-                  <a href={project.url} target="_blank" rel="noopener noreferrer" className="text-primary/90 hover:text-primary underline decoration-primary/40 hover:decoration-primary transition-colors">
-                    {project.company}
-                  </a> · {project.period}
+                  {project.url ? (
+                    <a href={project.url} target="_blank" rel="noopener noreferrer" className="text-primary/90 hover:text-primary underline decoration-primary/40 hover:decoration-primary transition-colors">
+                      {project.company}
+                    </a>
+                  ) : (
+                    <span className="text-foreground/80">{project.company}</span>
+                  )} · {project.period}
                 </CardDescription>
               </CardHeader>
               <CardContent>
