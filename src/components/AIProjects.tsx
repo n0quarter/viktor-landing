@@ -28,7 +28,7 @@ const projects: Project[] = [
     period: "2024 - Present",
     description: "Text & Voice AI chatbot grounded in hotel-specific knowledge",
     highlights: [
-      "RAG pipelines",
+      "RAG pipelines, MCP servers",
       "Personalized recommendations",
       "AI Voice from different vendors",
     ],
