@@ -38,15 +38,14 @@ const Hero = () => {
               </span>
             </h1>
             <div className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed space-y-8">
-              <div>
+              {/* <div>
                 Version 1:<br />
                 18+ years of experience building software. Expert in designing text & voice AI Agents,
                 RAG pipelines, and scalable architecture. Taking complex AI products from concept
                 to production (0→1). Former CTO.
-              </div>
+              </div> */}
 
               <div>
-                Version 2:
                 <ul className="list-disc list-inside mt-2 space-y-2">
                   <li>
                     3+ year of experience building gen-AI products
@@ -59,7 +58,7 @@ const Hero = () => {
                 </ul>
               </div>
 
-              <div>
+              {/* <div>
                 Version 3:
                 <ul className="list-disc list-inside mt-2 space-y-2">
                   <li>
@@ -71,7 +70,7 @@ const Hero = () => {
                   <li>I've been building software for 18+ years</li>
                   <li>As a former startups' CTO, I specialize on fast yet robust MVPs</li>
                 </ul>
-              </div>
+              </div> */}
             </div>
 
 
