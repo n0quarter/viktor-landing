@@ -1,3 +1,4 @@
+import alteosLogo from "@/assets/projects/alteos_logo.svg";
 import askSchmidtLogo from "@/assets/projects/askSchmidt.jpeg";
 import docDoliteLogo from "@/assets/projects/DocDolite_logo.png";
 import dolittleAiLogo from "@/assets/projects/dolittle-ai.png";
@@ -5,11 +6,9 @@ import empionLogo from "@/assets/projects/empion.svg";
 import suitePadLogo from "@/assets/projects/SuitePad_logo.png";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Building } from "lucide-react";
 
 interface Project {
-  logo?: string;
-  icon?: React.ReactNode;
+  logo: string;
   title: string;
   company: string;
   url?: string;
@@ -35,16 +34,17 @@ const projects: Project[] = [
     tech: ["RAG", "LLM", "Evals", "Langchain", "Langsmith", "OpenAI Realtime API", "AWS Nova Somic", "Ruby on Rails", "AWS"],
   },
   {
-    icon: <Building className="w-10 h-10 text-primary" />,
-    title: "AI Solutions for InsurTech",
-    company: "Leading Insurance Company",
+    logo: alteosLogo,
+    title: "AI Solutions for Insurance",
+    company: "Alteos",
+    url: "https://www.alteos.com/",
     period: "2025",
-    description: "Enterprise AI solutions for the insurance industry",
+    description: "Enterprise AI solutions for insurance industry",
     highlights: [
       "AI strategy consulting",
       "Agentic workflows",
     ],
-    tech: ["LLM", "Langchain", "Mastra", "Langfuse"],
+    tech: ["RAG", "LLM", "Evals", "Langchain", "Mastra", "Langfuse"],
   },
   {
     logo: docDoliteLogo,
@@ -123,11 +123,7 @@ const AIProjects = () => {
             <Card key={index} className="border border-border select-text">
               <CardHeader>
                 <div className="h-10 flex items-center justify-start mb-4">
-                  {project.logo ? (
-                    <img src={project.logo} alt={`${project.company} logo`} className="max-h-full max-w-full object-contain" draggable="false" />
-                  ) : (
-                    project.icon
-                  )}
+                  <img src={project.logo} alt={`${project.company} logo`} className="max-h-full max-w-full object-contain" draggable="false" />
                 </div>
                 <CardTitle className="text-xl">{project.title}</CardTitle>
                 <CardDescription>
