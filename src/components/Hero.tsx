@@ -48,7 +48,7 @@ const Hero = () => {
               <div>
                 <ul className="list-disc list-inside mt-2 space-y-2">
                   <li>
-                    3+ year of experience building gen-AI products
+                    3+ years of experience building gen-AI products
                     <span className="block text-base text-slate-400 ml-8">
                       Text & Voice/Phone Agents · RAG Pipelines · LLM Evals
                     </span>

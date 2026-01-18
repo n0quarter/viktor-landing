@@ -52,7 +52,7 @@ const projects: Project[] = [
     company: "DocDolittle",
     url: "https://doc.dolittle-ai.de/",
     period: "2025",
-    description: "AI voice phone receptionist for german doctors' practices",
+    description: "AI voice phone receptionist for German doctors' practices",
     highlights: [
       "Multi-modal AI agents (voice + text)",
       "AI generated reply suggestions",
@@ -92,14 +92,14 @@ const projects: Project[] = [
   {
     logo: empionLogo,
     title: "AI Solutions",
-    company: "empion",
+    company: "Empion",
     url: "https://www.empion.io/",
     period: "2025",
-    description: "Enterprise AI content categorization and AI powered web-research.",
+    description: "Enterprise AI content categorization and AI-powered web-research.",
     highlights: [
       "Multiple LLM evaluation framework",
       "Iterate LLM error rate based on annotated data",
-      "AI powered web-research",
+      "AI-powered web-research",
     ],
     tech: ["LLM", "Evals", "OpenRouter", "Node.js", "TypeScript", "React"],
   },
