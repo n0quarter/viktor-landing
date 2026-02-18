@@ -9,22 +9,26 @@ const features = [
   {
     icon: <Code2 className="w-5 h-5" />,
     title: "Coding Agents/IDE",
-    description: "Hands-on coding with Claude Code, Codex CLI, Cursor Agent. AI-assisted coding in JetBrains IDEs. TDD and Spec-driven development workflows",
+    description:
+      "Hands-on coding with Claude Code, Codex CLI, Cursor Agent. AI-assisted coding in JetBrains IDEs. TDD and Spec-driven development workflows",
   },
   {
     icon: <Brain className="w-5 h-5" />,
     title: "AI Landscape & Advanced Prompting",
-    description: "Vibe coding (bad) vs AI-assisted coding (good). Understanding LLM architecture -> Advanced Prompting",
+    description:
+      "Vibe coding (bad) vs AI-assisted coding (good). Understanding LLM architecture -> Advanced Prompting",
   },
   {
     icon: <Zap className="w-5 h-5" />,
     title: "Context Engineering",
-    description: "Techniques for steering coding agents and reasoning models. Creating custom AI tools for coding (hands-on)",
+    description:
+      "Techniques for steering coding agents and reasoning models. Creating custom AI tools for coding (hands-on)",
   },
   {
     icon: <Terminal className="w-5 h-5" />,
     title: "Best Practices & Anti-patterns",
-    description: "Understand LLM limitations, halucinations, and how to avoid common AI development pitfalls.",
+    description:
+      "Understand LLM limitations, halucinations, and how to avoid common AI development pitfalls.",
   },
 ];
 
@@ -32,19 +36,22 @@ const testimonials = [
   {
     name: "Jens Naie",
     role: "CTO, Doodle AG",
-    quote: "Viktor's generative AI workshop was a resounding success! He skillfully brought our team, with varying levels of experience, to a shared understanding, addressing common AI anxieties with clarity and practical advice...",
+    quote:
+      "Viktor's generative AI workshop was a resounding success! He skillfully brought our team, with varying levels of experience, to a shared understanding, addressing common AI anxieties with clarity and practical advice...",
     image: jensPhoto,
   },
   {
     name: "Tim Yevgrashyn",
     role: "CTO, Stepico",
-    quote: "The practical focus of this workshop was a game-changer for our development team. Instead of just discussing AI tools, our engineers actually learned how to implement them effectively in their day-to-day coding...",
+    quote:
+      "The practical focus of this workshop was a game-changer for our development team. Instead of just discussing AI tools, our engineers actually learned how to implement them effectively in their day-to-day coding...",
     image: timPhoto,
   },
   {
     name: "Julio",
     role: "Head of Engineering, Empion",
-    quote: "The workshop was very insightful and gave us valuable hands-on experience. While the first day covered some familiar ground, we found the deep dive into Cursor, prompt techniques, and best practices especially useful...",
+    quote:
+      "The workshop was very insightful and gave us valuable hands-on experience. While the first day covered some familiar ground, we found the deep dive into Cursor, prompt techniques, and best practices especially useful...",
     image: julioPhoto,
   },
 ];
@@ -58,14 +65,19 @@ const WorkshopSection = () => {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Users className="w-5 h-5 text-primary" />
-              <span className="text-sm font-medium text-primary">80+ developers trained across 4 workshops</span>
+              <span className="text-sm font-medium text-primary">
+                80+ developers trained across 4 workshops
+              </span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Author of Gen AI Workshop<br />for Developers
+              Author of Gen AI Workshop
+              <br />
+              for Developers
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
               Teacning developers AI-assisted coding with agents (Cursor, Claude Code) and IDEs.
-              Hands-on practice: Enterprise-grade setup, custom tools, context engineering, and best practices.
+              Hands-on practice: Enterprise-grade setup, custom tools, context engineering, and best
+              practices.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-4 mb-8">

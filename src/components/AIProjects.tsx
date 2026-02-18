@@ -31,7 +31,17 @@ const projects: Project[] = [
       "Personalized recommendations",
       "AI Voice from different vendors",
     ],
-    tech: ["RAG", "LLM", "Evals", "Langchain", "Langsmith", "OpenAI Realtime API", "AWS Nova Somic", "Ruby on Rails", "AWS"],
+    tech: [
+      "RAG",
+      "LLM",
+      "Evals",
+      "Langchain",
+      "Langsmith",
+      "OpenAI Realtime API",
+      "AWS Nova Somic",
+      "Ruby on Rails",
+      "AWS",
+    ],
   },
   {
     logo: alteosLogo,
@@ -40,10 +50,7 @@ const projects: Project[] = [
     url: "https://www.alteos.com/",
     period: "2025",
     description: "Enterprise AI solutions for insurance industry",
-    highlights: [
-      "AI strategy consulting",
-      "Agentic workflows",
-    ],
+    highlights: ["AI strategy consulting", "Agentic workflows"],
     tech: ["RAG", "LLM", "Evals", "Langchain", "Mastra", "Langfuse"],
   },
   {
@@ -58,7 +65,19 @@ const projects: Project[] = [
       "AI generated reply suggestions",
       "Smart categorization of incoming calls",
     ],
-    tech: ["RAG", "LLM", "Langchain", "VoIP", "FreeSWITCH", "Elevenlabs Voice", "Supabase", "Node.js", "React", "TypeScript", "AWS"],
+    tech: [
+      "RAG",
+      "LLM",
+      "Langchain",
+      "VoIP",
+      "FreeSWITCH",
+      "Elevenlabs Voice",
+      "Supabase",
+      "Node.js",
+      "React",
+      "TypeScript",
+      "AWS",
+    ],
   },
   {
     logo: dolittleAiLogo,
@@ -73,7 +92,18 @@ const projects: Project[] = [
       "Custom Evals",
       "Agentic workflows",
     ],
-    tech: ["LLM","RAG", "Langchain", "Node.js", "Supabase", "OpenAI Realtime API", "AWS Nova Somic", "TypeScript", "React", "AWS"],
+    tech: [
+      "LLM",
+      "RAG",
+      "Langchain",
+      "Node.js",
+      "Supabase",
+      "OpenAI Realtime API",
+      "AWS Nova Somic",
+      "TypeScript",
+      "React",
+      "AWS",
+    ],
   },
   {
     logo: askSchmidtLogo,
@@ -123,17 +153,28 @@ const AIProjects = () => {
             <Card key={index} className="border border-border select-text">
               <CardHeader>
                 <div className="h-10 flex items-center justify-start mb-4">
-                  <img src={project.logo} alt={`${project.company} logo`} className="max-h-full max-w-full object-contain" draggable="false" />
+                  <img
+                    src={project.logo}
+                    alt={`${project.company} logo`}
+                    className="max-h-full max-w-full object-contain"
+                    draggable="false"
+                  />
                 </div>
                 <CardTitle className="text-xl">{project.title}</CardTitle>
                 <CardDescription>
                   {project.url ? (
-                    <a href={project.url} target="_blank" rel="noopener noreferrer" className="text-primary/90 hover:text-primary underline decoration-primary/40 hover:decoration-primary transition-colors">
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary/90 hover:text-primary underline decoration-primary/40 hover:decoration-primary transition-colors"
+                    >
                       {project.company}
                     </a>
                   ) : (
                     <span className="text-foreground/80">{project.company}</span>
-                  )} · {project.period}
+                  )}{" "}
+                  · {project.period}
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -148,7 +189,11 @@ const AIProjects = () => {
                 </ul>
                 <div className="flex flex-wrap gap-1.5">
                   {project.tech.map((t, i) => (
-                    <Badge key={i} variant="secondary" className="text-xs bg-primary/10 text-primary border-0 cursor-default hover:bg-primary/10">
+                    <Badge
+                      key={i}
+                      variant="secondary"
+                      className="text-xs bg-primary/10 text-primary border-0 cursor-default hover:bg-primary/10"
+                    >
                       {t}
                     </Badge>
                   ))}

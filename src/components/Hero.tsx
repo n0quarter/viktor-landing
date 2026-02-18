@@ -19,18 +19,16 @@ const Hero = () => {
       className="py-12 md:py-12 text-white"
       style={{
         backgroundImage: `url(${bgImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
       }}
     >
       <div className="container max-w-6xl">
         <div className="grid md:grid-cols-3 gap-12 items-start">
           <div className="md:col-span-2">
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
-              <span className="text-3xl md:text-4xl lg:text-5xl block mb-2">
-                Viktor Shcherban
-                </span>
+              <span className="text-3xl md:text-4xl lg:text-5xl block mb-2">Viktor Shcherban</span>
               <span className="text-primary">
                 {/* keep it here commented for now */}
                 {/* AI Product Engineer or Full-Stack GenAI Engineer */}
@@ -47,13 +45,13 @@ const Hero = () => {
 
               <div>
                 <ul className="list-disc list-inside mt-2 space-y-2">
+                  <li>18+ years of experience building software</li>
                   <li>
                     3+ years of experience building gen-AI products
                     <span className="block text-base text-slate-400 ml-8">
                       Text & Voice/Phone Agents · RAG Pipelines · LLM Evals
                     </span>
                   </li>
-                  <li>18+ years of experience building software</li>
                   <li>As a former startups' CTO, I specialize on fast yet robust MVPs</li>
                 </ul>
               </div>
@@ -73,7 +71,6 @@ const Hero = () => {
               </div> */}
             </div>
 
-
             <div className="flex items-center gap-6 text-sm text-slate-300">
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4" />
@@ -83,7 +80,11 @@ const Hero = () => {
                   className="hover:text-white transition-colors p-1"
                   title="Copy email"
                 >
-                  {copiedEmail ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
+                  {copiedEmail ? (
+                    <Check className="w-4 h-4 text-green-400" />
+                  ) : (
+                    <Copy className="w-4 h-4" />
+                  )}
                 </button>
               </div>
               <div className="flex items-center gap-2">

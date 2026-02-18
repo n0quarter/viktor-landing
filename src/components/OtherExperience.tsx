@@ -5,7 +5,14 @@ import timberbaseLogo from "@/assets/companies/timberbase_logo.webp";
 import uberblickLogo from "@/assets/companies/uberblick_logo.png";
 import vintLogo from "@/assets/companies/vint_logo.png";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 interface ExperienceItem {
   period: string;
@@ -149,7 +156,9 @@ const FounderSticker = ({ role }: { role: string }) => {
     <span className={`${wrapperClass} relative px-3 py-0.5`}>
       <span className="absolute inset-0 bg-primary/15 -skew-x-12 rounded translate-x-0.5" />
       <span className="absolute inset-0 bg-primary/20 -skew-x-12 rounded" />
-      <span className="relative text-primary text-[11px] font-black uppercase tracking-wider">{role}</span>
+      <span className="relative text-primary text-[11px] font-black uppercase tracking-wider">
+        {role}
+      </span>
     </span>
   );
 };
@@ -184,7 +193,10 @@ const OtherExperience = () => {
     const countryFlag = exp.country === "de" ? "🇩🇪" : "🇺🇦";
 
     return (
-      <Card key={index} className="border border-border select-text overflow-hidden flex flex-col relative">
+      <Card
+        key={index}
+        className="border border-border select-text overflow-hidden flex flex-col relative"
+      >
         <CardHeader>
           <div className="h-12 flex items-center justify-between mb-4">
             {exp.logo && (
@@ -216,7 +228,8 @@ const OtherExperience = () => {
             ) : (
               <span className="text-primary/90 font-medium">{exp.company}</span>
             )}
-            {" · "}{exp.period}
+            {" · "}
+            {exp.period}
           </CardDescription>
         </CardHeader>
         <CardContent className="flex-grow">
@@ -231,14 +244,20 @@ const OtherExperience = () => {
           </ul>
           <div className="flex flex-wrap gap-1.5">
             {exp.tech.map((t, i) => (
-              <Badge key={i} variant="secondary" className="text-xs bg-primary/10 text-primary border-0 cursor-default hover:bg-primary/10">
+              <Badge
+                key={i}
+                variant="secondary"
+                className="text-xs bg-primary/10 text-primary border-0 cursor-default hover:bg-primary/10"
+              >
                 {t}
               </Badge>
             ))}
           </div>
         </CardContent>
         {exp.company !== "Bonial International Group" && (
-          <CardFooter className={`${statusStyles.bgColor} border-t ${statusStyles.borderColor} py-2 px-6 flex items-center gap-1.5 text-xs font-medium`}>
+          <CardFooter
+            className={`${statusStyles.bgColor} border-t ${statusStyles.borderColor} py-2 px-6 flex items-center gap-1.5 text-xs font-medium`}
+          >
             {exp.statusType === "closed" && <span className={statusStyles.textColor}>Closed</span>}
             {exp.statusType === "operational" && (
               <>

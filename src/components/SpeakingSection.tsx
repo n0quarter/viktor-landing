@@ -19,11 +19,10 @@ const SpeakingSection = () => {
                 <Mic className="w-7 h-7 text-primary" />
               </div>
               <div>
-                <h2 className="text-2xl md:text-3xl font-bold mb-2">
-                  Public Speaker
-                </h2>
+                <h2 className="text-2xl md:text-3xl font-bold mb-2">Public Speaker</h2>
                 <p className="text-slate-300 max-w-xl">
-                  Presenting at AI conferences and meetups on topics like agentic systems and AI-assisted coding. 20+ talks delivered over 18 years to audiences of 20-400.
+                  Presenting at AI conferences and meetups on topics like agentic systems and
+                  AI-assisted coding. 20+ talks delivered over 18 years to audiences of 20-400.
                 </p>
               </div>
             </div>

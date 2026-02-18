@@ -35,7 +35,11 @@ const Footer = () => {
                     className="hover:text-background transition-colors p-1"
                     title="Copy email"
                   >
-                    {copiedEmail ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4 opacity-50" />}
+                    {copiedEmail ? (
+                      <Check className="w-4 h-4 text-green-400" />
+                    ) : (
+                      <Copy className="w-4 h-4 opacity-50" />
+                    )}
                   </button>
                 </div>
               </div>
@@ -48,7 +52,11 @@ const Footer = () => {
                     className="hover:text-background transition-colors p-1"
                     title="Copy phone"
                   >
-                    {copiedPhone ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4 opacity-50" />}
+                    {copiedPhone ? (
+                      <Check className="w-4 h-4 text-green-400" />
+                    ) : (
+                      <Copy className="w-4 h-4 opacity-50" />
+                    )}
                   </button>
                 </div>
               </div>
@@ -88,9 +96,18 @@ const Footer = () => {
               Languages
             </h2>
             <div className="space-y-2 text-sm">
-              <p><span className="text-background">English:</span> <span className="text-background/70">Fluent</span></p>
-              <p><span className="text-background">German:</span> <span className="text-background/70">B1</span></p>
-              <p><span className="text-background">Ukrainian:</span> <span className="text-background/70">Native</span></p>
+              <p>
+                <span className="text-background">English:</span>{" "}
+                <span className="text-background/70">Fluent</span>
+              </p>
+              <p>
+                <span className="text-background">German:</span>{" "}
+                <span className="text-background/70">B1</span>
+              </p>
+              <p>
+                <span className="text-background">Ukrainian:</span>{" "}
+                <span className="text-background/70">Native</span>
+              </p>
             </div>
           </div>
         </div>
