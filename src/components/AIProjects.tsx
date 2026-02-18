@@ -32,6 +32,7 @@ const projects: Project[] = [
       "AI Voice from different vendors",
     ],
     tech: [
+      "Vercel AI SDK",
       "RAG",
       "LLM",
       "Evals",
@@ -40,7 +41,9 @@ const projects: Project[] = [
       "OpenAI Realtime API",
       "AWS Nova Somic",
       "Ruby on Rails",
-      "AWS",
+      "AWS Bedrock",
+      "Azure OpenAI",
+      "Google Vertex AI",
     ],
   },
   {
@@ -51,7 +54,7 @@ const projects: Project[] = [
     period: "2025",
     description: "Enterprise AI solutions for insurance industry",
     highlights: ["AI strategy consulting", "Agentic workflows"],
-    tech: ["RAG", "LLM", "Evals", "Langchain", "Mastra", "Langfuse"],
+    tech: ["Vercel AI SDK", "RAG", "LLM", "Evals", "Langchain", "Mastra", "Langfuse"],
   },
   {
     logo: docDoliteLogo,
