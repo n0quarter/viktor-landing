@@ -3,8 +3,7 @@ import { Button } from "@/components/ui/button";
 import { CONTACT_INFO } from "@/lib/constants";
 import { Check, ClipboardCopy, Copy, FileText, Mail, MapPin } from "lucide-react";
 import { useState } from "react";
-// import viktorPhoto from "@/assets/viktor.png";
-const viktorPhoto = "/viktor.png";
+const viktorPhoto = "/viktor.jpg";
 
 const Hero = () => {
   const [copiedEmail, setCopiedEmail] = useState(false);
