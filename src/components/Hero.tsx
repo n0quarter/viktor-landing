@@ -1,12 +1,22 @@
 import bgImage from "@/assets/bg8.png";
+import { Button } from "@/components/ui/button";
 import { CONTACT_INFO } from "@/lib/constants";
-import { Check, Copy, Mail, MapPin } from "lucide-react";
+import { Check, ClipboardCopy, Copy, FileText, Mail, MapPin } from "lucide-react";
 import { useState } from "react";
 // import viktorPhoto from "@/assets/viktor.png";
 const viktorPhoto = "/viktor.png";
 
 const Hero = () => {
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedMarkdown, setCopiedMarkdown] = useState(false);
+
+  const copyAsMarkdown = async () => {
+    const res = await fetch("/profile.md");
+    const text = await res.text();
+    await navigator.clipboard.writeText(text);
+    setCopiedMarkdown(true);
+    setTimeout(() => setCopiedMarkdown(false), 2000);
+  };
 
   const copyEmail = () => {
     navigator.clipboard.writeText(CONTACT_INFO.email);
@@ -52,7 +62,7 @@ const Hero = () => {
                       Text & Voice/Phone Agents · RAG Pipelines · LLM Evals
                     </span>
                   </li>
-                  <li>As a former startups' CTO, I specialize on fast yet robust MVPs</li>
+                  <li>As a former startups' CTO, I specialize in fast yet robust MVPs</li>
                 </ul>
               </div>
 
@@ -66,12 +76,12 @@ const Hero = () => {
                     </span>
                   </li>
                   <li>I've been building software for 18+ years</li>
-                  <li>As a former startups' CTO, I specialize on fast yet robust MVPs</li>
+                  <li>As a former startups' CTO, I specialize in fast yet robust MVPs</li>
                 </ul>
               </div> */}
             </div>
 
-            <div className="flex items-center gap-6 text-sm text-slate-300">
+            <div className="flex flex-wrap items-center gap-6 text-sm text-slate-300">
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4" />
                 <span>{CONTACT_INFO.email}</span>
@@ -90,6 +100,33 @@ const Hero = () => {
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4" />
                 <span>{CONTACT_INFO.location}</span>
+              </div>
+              <div className="basis-full flex flex-wrap gap-3">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={copyAsMarkdown}
+                  className="gap-2 border-slate-500 text-slate-300 bg-transparent hover:bg-slate-700 hover:text-white"
+                >
+                  {copiedMarkdown ? (
+                    <Check className="w-4 h-4 text-green-400" />
+                  ) : (
+                    <ClipboardCopy className="w-4 h-4" />
+                  )}
+                  {copiedMarkdown ? "Copied!" : "Copy as Markdown"}
+                </Button>
+
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="gap-2 border-slate-500 text-slate-300 bg-transparent hover:bg-slate-700 hover:text-white"
+                  asChild
+                >
+                  <a href="/Viktor_CV.pdf" download>
+                    <FileText className="w-4 h-4" />
+                    Download CV
+                  </a>
+                </Button>
               </div>
             </div>
           </div>

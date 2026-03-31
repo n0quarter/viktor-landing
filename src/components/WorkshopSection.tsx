@@ -28,7 +28,7 @@ const features = [
     icon: <Terminal className="w-5 h-5" />,
     title: "Best Practices & Anti-patterns",
     description:
-      "Understand LLM limitations, halucinations, and how to avoid common AI development pitfalls.",
+      "Understand LLM limitations, hallucinations, and how to avoid common AI development pitfalls.",
   },
 ];
 
@@ -75,7 +75,7 @@ const WorkshopSection = () => {
               for Developers
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Teacning developers AI-assisted coding with agents (Cursor, Claude Code) and IDEs.
+              Teaching developers AI-assisted coding with agents (Cursor, Claude Code) and IDEs.
               Hands-on practice: Enterprise-grade setup, custom tools, context engineering, and best
               practices.
             </p>

@@ -39,7 +39,7 @@ const experiences: ExperienceItem[] = [
     highlights: [
       "Designed and scaled the global marketplace architecture (0->1)",
       "Established technical standards (CI/CD, clean architecture)",
-      "Reliable features delivey for hypothesys validation",
+      "Reliable feature delivery for hypothesis validation",
     ],
     tech: ["TypeScript", "React", "Redux", "PostgreSQL", "AWS", "Terraform", "Kotlin"],
     logo: timberbaseLogo,
