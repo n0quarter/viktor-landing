@@ -54,11 +54,11 @@ const Hero = () => {
 
               <div>
                 <ul className="list-disc list-inside mt-2 space-y-2">
-                  <li>18+ years of experience building software</li>
+                  <li>19 years of experience building software</li>
                   <li>
-                    3+ years of experience building gen-AI products
+                    4 years of experience building genAI products
                     <span className="block text-base text-slate-400 ml-8">
-                      Text & Voice/Phone Agents · RAG Pipelines · LLM Evals
+                      Text & Voice/Phone Agents · RAG Pipelines · MCP Servers
                     </span>
                   </li>
                   <li>As a former startups' CTO, I specialize in fast yet robust MVPs</li>
