@@ -1,5 +1,6 @@
 import jensPhoto from "@/assets/jens.png";
 import julioPhoto from "@/assets/julio.jpeg";
+import lucaPhoto from "@/assets/luca.jpeg";
 import timPhoto from "@/assets/tim.png";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -47,7 +48,7 @@ const testimonials = [
     role: "CPO, Bettermile",
     quote:
       "Viktor ran an AI workshop for technical and non-technical people at Bettermile, guiding our large and diverse group through building their first prototypes with Claude. He stayed calm and adaptable when things didn't go as planned, maintained positive energy, and received very good participant feedback. Deep expertise and a great person, Viktor is a highly recommended coach.",
-    image: "https://media.licdn.com/dms/image/v2/D4E03AQHV9hC-OwlDdw/profile-displayphoto-shrink_200_200/B4EZZDh5I4HMAc-/0/1744889680944?e=2147483647&v=beta&t=m52vYhvgb87IEsvfsTdwutgQtIXc_6Xp34bomr0CMB4",
+    image: lucaPhoto,
   },
   {
     name: "Jens Naie",
