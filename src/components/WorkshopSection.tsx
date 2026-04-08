@@ -47,7 +47,7 @@ const testimonials = [
     role: "CPO, Bettermile",
     quote:
       "Viktor ran an AI workshop for technical and non-technical people at Bettermile, guiding our large and diverse group through building their first prototypes with Claude. He stayed calm and adaptable when things didn't go as planned, maintained positive energy, and received very good participant feedback. Deep expertise and a great person, Viktor is a highly recommended coach.",
-    image: null,
+    image: "https://media.licdn.com/dms/image/v2/D4E03AQHV9hC-OwlDdw/profile-displayphoto-shrink_200_200/B4EZZDh5I4HMAc-/0/1744889680944?e=2147483647&v=beta&t=m52vYhvgb87IEsvfsTdwutgQtIXc_6Xp34bomr0CMB4",
   },
   {
     name: "Jens Naie",
