@@ -1,5 +1,6 @@
 import jensPhoto from "@/assets/jens.png";
 import julioPhoto from "@/assets/julio.jpeg";
+import lucaPhoto from "@/assets/luca.jpeg";
 import timPhoto from "@/assets/tim.png";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -41,6 +42,14 @@ const features = [
 ];
 
 const testimonials = [
+  {
+    name: "Luca Criscuolo",
+    linkedin: "https://www.linkedin.com/in/lucacriscuolo/",
+    role: "CPO, Bettermile",
+    quote:
+      "Viktor ran an AI workshop for technical and non-technical people at Bettermile, guiding our large and diverse group through building their first prototypes with Claude. He stayed calm and adaptable when things didn't go as planned, maintained positive energy, and received very good participant feedback. Deep expertise and a great person, Viktor is a highly recommended coach.",
+    image: lucaPhoto,
+  },
   {
     name: "Jens Naie",
     linkedin: "https://www.linkedin.com/in/jens-naie/",
@@ -121,11 +130,17 @@ const WorkshopSection = () => {
                 <CardContent className="pt-6">
                   <p className="text-muted-foreground mb-4 italic">"{testimonial.quote}"</p>
                   <div className="flex items-center gap-3">
-                    <img
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      className="w-10 h-10 rounded-full object-cover"
-                    />
+                    {testimonial.image ? (
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className="w-10 h-10 rounded-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-semibold shrink-0">
+                        {testimonial.name.split(" ").map((n) => n[0]).join("")}
+                      </div>
+                    )}
                     <div>
                       <a
                         href={testimonial.linkedin}
