@@ -3,7 +3,15 @@ import julioPhoto from "@/assets/julio.jpeg";
 import timPhoto from "@/assets/tim.png";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Brain, Code2, Terminal, Users, Zap } from "lucide-react";
+import {
+  ArrowRight,
+  Brain,
+  Code2,
+  Linkedin,
+  Terminal,
+  Users,
+  Zap,
+} from "lucide-react";
 
 const features = [
   {
@@ -35,6 +43,7 @@ const features = [
 const testimonials = [
   {
     name: "Jens Naie",
+    linkedin: "https://www.linkedin.com/in/jens-naie/",
     role: "CTO, Doodle AG",
     quote:
       "Viktor's generative AI workshop was a resounding success! He skillfully brought our team, with varying levels of experience, to a shared understanding, addressing common AI anxieties with clarity and practical advice...",
@@ -42,6 +51,7 @@ const testimonials = [
   },
   {
     name: "Tim Yevgrashyn",
+    linkedin: "https://www.linkedin.com/in/yevgrashyn/",
     role: "CTO, Stepico",
     quote:
       "The practical focus of this workshop was a game-changer for our development team. Instead of just discussing AI tools, our engineers actually learned how to implement them effectively in their day-to-day coding...",
@@ -49,6 +59,7 @@ const testimonials = [
   },
   {
     name: "Julio",
+    linkedin: "https://www.linkedin.com/in/jcfausto/",
     role: "Head of Engineering, Empion",
     quote:
       "The workshop was very insightful and gave us valuable hands-on experience. While the first day covered some familiar ground, we found the deep dive into Cursor, prompt techniques, and best practices especially useful...",
@@ -116,7 +127,16 @@ const WorkshopSection = () => {
                       className="w-10 h-10 rounded-full object-cover"
                     />
                     <div>
-                      <p className="font-medium text-foreground">{testimonial.name}</p>
+                      <a
+                        href={testimonial.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 font-medium text-foreground transition-colors hover:text-primary"
+                        aria-label={`${testimonial.name} on LinkedIn`}
+                      >
+                        {testimonial.name}
+                        <Linkedin className="h-3.5 w-3.5 text-primary/70" />
+                      </a>
                       <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                     </div>
                   </div>
