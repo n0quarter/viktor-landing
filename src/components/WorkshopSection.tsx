@@ -7,12 +7,15 @@ import { Card, CardContent } from "@/components/ui/card";
 import {
   ArrowRight,
   Brain,
+  ChevronDown,
+  ChevronUp,
   Code2,
   Linkedin,
   Terminal,
   Users,
   Zap,
 } from "lucide-react";
+import { useState } from "react";
 
 const features = [
   {
@@ -77,6 +80,9 @@ const testimonials = [
 ];
 
 const WorkshopSection = () => {
+  const [showAll, setShowAll] = useState(false);
+  const visibleTestimonials = showAll ? testimonials : testimonials.slice(0, 2);
+
   return (
     <section id="workshops" className="py-20 bg-muted/30">
       <div className="container max-w-6xl">
@@ -125,7 +131,7 @@ const WorkshopSection = () => {
           {/* Right: Testimonials */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-foreground mb-4">What People Say</h3>
-            {testimonials.map((testimonial, index) => (
+            {visibleTestimonials.map((testimonial, index) => (
               <Card key={index} className="border border-border">
                 <CardContent className="pt-6">
                   <p className="text-muted-foreground mb-4 italic">"{testimonial.quote}"</p>
@@ -158,6 +164,16 @@ const WorkshopSection = () => {
                 </CardContent>
               </Card>
             ))}
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
+              {showAll ? (
+                <><ChevronUp className="w-4 h-4" /> Show less</>
+              ) : (
+                <><ChevronDown className="w-4 h-4" /> Show {testimonials.length - 2} more</>
+              )}
+            </button>
           </div>
         </div>
       </div>
