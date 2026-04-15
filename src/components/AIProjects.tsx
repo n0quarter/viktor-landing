@@ -41,10 +41,12 @@ const projects: Project[] = [
       "Langsmith",
       "OpenAI Realtime API",
       "AWS Nova Sonic 2",
+      "Python",
       "Ruby on Rails",
       "AWS Bedrock",
       "Azure OpenAI",
       "Google Vertex AI",
+      "pgvector"
     ],
   },
   {
@@ -82,6 +84,7 @@ const projects: Project[] = [
       "React",
       "TypeScript",
       "AWS",
+      "Pinecone"
     ],
   },
   {
@@ -101,6 +104,7 @@ const projects: Project[] = [
       "LLM",
       "RAG",
       "Langchain",
+      "Python",
       "Node.js",
       "Supabase",
       "OpenAI Realtime API",
@@ -122,7 +126,7 @@ const projects: Project[] = [
       "Image recognition",
       "Grounded by web-search",
     ],
-    tech: ["RAG", "LLM", "React", "DynamoDB", "TypeScript", "Node.js", "AWS"],
+    tech: ["RAG", "LLM", "React", "DynamoDB", "Terraform", "serverless", "TypeScript", "Javascript", "Node.js", "AWS", "openAI platform"],
   },
   {
     logo: empionLogo,
@@ -136,7 +140,7 @@ const projects: Project[] = [
       "Iterate LLM error rate based on annotated data",
       "AI-powered web-research",
     ],
-    tech: ["LLM", "Evals", "OpenRouter", "Node.js", "TypeScript", "React"],
+    tech: ["LLM", "Evals", "OpenRouter", "Python", "Node.js", "TypeScript", "Javascript", "React"],
   },
 ];
 

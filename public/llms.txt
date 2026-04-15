@@ -21,7 +21,7 @@ Text & Voice AI chatbot grounded in hotel-specific knowledge.
 - Personalized recommendations
 - AI Voice from different vendors
 
-**Tech:** Vercel AI SDK, RAG, LLM, MCP, Evals, Langchain, Langsmith, OpenAI Realtime API, AWS Nova Sonic 2, Ruby on Rails, AWS Bedrock, Azure OpenAI, Google Vertex AI
+**Tech:** Vercel AI SDK, RAG, LLM, MCP, Evals, Langchain, Langsmith, OpenAI Realtime API, AWS Nova Sonic 2, Python, Ruby on Rails, AWS Bedrock, Azure OpenAI, Google Vertex AI
 
 ---
 
@@ -57,7 +57,7 @@ AI-powered platform and solutions.
 - Custom Evals
 - Agentic workflows
 
-**Tech:** LLM, RAG, Langchain, Node.js, Supabase, OpenAI Realtime API, AWS Nova Sonic 2, TypeScript, React, AWS
+**Tech:** LLM, RAG, Langchain, Python, Node.js, Supabase, OpenAI Realtime API, AWS Nova Sonic 2, TypeScript, React, AWS
 
 ---
 
@@ -81,7 +81,7 @@ Enterprise AI content categorization and AI-powered web-research.
 - Iterate LLM error rate based on annotated data
 - AI-powered web-research
 
-**Tech:** LLM, Evals, OpenRouter, Node.js, TypeScript, React
+**Tech:** LLM, Evals, OpenRouter, Python, Node.js, TypeScript, React
 
 ---
 
@@ -137,7 +137,7 @@ Global B2B marketplace. *Acquired by UFP (NASDAQ-listed).*
 - Established technical standards (CI/CD, clean architecture)
 - Reliable feature delivery for hypothesis validation
 
-**Tech:** TypeScript, React, Redux, PostgreSQL, AWS, Terraform, Kotlin
+**Tech:** Python, Django, TypeScript, React, Redux, PostgreSQL, AWS, Terraform, Kotlin
 
 ---
 
