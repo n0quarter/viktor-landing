@@ -34,6 +34,7 @@ const projects: Project[] = [
     tech: [
       "Vercel AI SDK",
       "RAG",
+      "Document AI",
       "LLM",
       "MCP",
       "Evals",
