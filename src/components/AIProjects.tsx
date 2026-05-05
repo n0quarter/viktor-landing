@@ -47,7 +47,8 @@ const projects: Project[] = [
       "AWS Bedrock",
       "Azure OpenAI",
       "Google Vertex AI",
-      "pgvector"
+      "OpenSearch",
+      "pgvector",
     ],
   },
   {
