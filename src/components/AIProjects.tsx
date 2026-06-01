@@ -40,6 +40,7 @@ const projects: Project[] = [
       "Evals",
       "Langchain",
       "Langsmith",
+      "Langgraph",
       "OpenAI Realtime API",
       "AWS Nova Sonic 2",
       "Python",
