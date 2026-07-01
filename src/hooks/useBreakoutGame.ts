@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 
-// A calm, self-playing *reverse* Breakout scene laid over a headline. The paddle
-// rides along the TOP, the two headline lines are the bricks, and the ball
-// bounces off a "floor" — the line below the headline (e.g. the "19 years…" row).
+// A calm, self-playing *reverse* Breakout scene laid over the hero. The paddle
+// rides along the TOP; the two headline lines are breakable bricks that fade when
+// hit; the body/bio lines below are static colliders the ball bounces off but
+// never fades. The bottom of the body region is a safety-wall floor.
 //
 // The animation is driven by mutating the ball/paddle/letter DOM nodes directly
 // through refs inside the rAF loop — deliberately NO React state per frame, so
@@ -13,7 +14,7 @@ export type Rect = { x: number; y: number; w: number; h: number };
 type Ball = { x: number; y: number; r: number };
 
 export const BALL_RADIUS = 7;
-const BALL_SPEED = 2.6; // px per frame, calm (≈1 min to clear both lines)
+const BALL_SPEED = 2.6; // px per frame, calm (headline clears in ~1 min)
 export const PADDLE_WIDTH = 64;
 export const PADDLE_HEIGHT = 8;
 // The top paddle is a damped spring chasing the ball — it eases in (accelerates),
@@ -215,7 +216,7 @@ export function useBreakoutGame({
         b.y = ceilingY + BALL_RADIUS;
         b.vy = Math.abs(b.vy);
       }
-      // Floor: bounce off the row below the headline (the "19 years…" line).
+      // Floor: safety wall at the bottom of the body text region.
       if (b.y + BALL_RADIUS > floorY) {
         b.y = floorY - BALL_RADIUS;
         b.vy = -Math.abs(b.vy);
@@ -272,7 +273,7 @@ export function useBreakoutGame({
       }
 
       // Keep a steady speed with a balanced diagonal so neither axis stalls —
-      // a persistent ~45° drift lets the ball sweep both lines.
+      // a persistent ~45° drift lets the ball sweep the whole field.
       const target = BALL_SPEED * Math.SQRT2;
       const speed = Math.hypot(b.vx, b.vy) || target;
       b.vx = (b.vx / speed) * target;
