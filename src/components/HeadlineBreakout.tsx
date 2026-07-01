@@ -17,10 +17,10 @@ type Line = { text: string; className?: string };
 
 type Props = {
   lines: Line[];
-  floorRef: React.RefObject<HTMLElement>;
+  bounceRef: React.RefObject<HTMLElement>;
 };
 
-const HeadlineBreakout = ({ lines, floorRef }: Props) => {
+const HeadlineBreakout = ({ lines, bounceRef }: Props) => {
   const containerRef = useRef<HTMLSpanElement>(null);
   const ballRef = useRef<HTMLSpanElement>(null);
   const paddleRef = useRef<HTMLSpanElement>(null);
@@ -29,7 +29,7 @@ const HeadlineBreakout = ({ lines, floorRef }: Props) => {
   // Decide once: desktop-only + respect reduced motion. Otherwise plain text.
   const [enabled] = useState(shouldEnableGame);
 
-  useBreakoutGame({ enabled, containerRef, ballRef, paddleRef, letterRefs, floorRef });
+  useBreakoutGame({ enabled, containerRef, ballRef, paddleRef, letterRefs, bounceRef });
 
   // Flat, stable letter index across all lines so the hook can address bricks.
   let index = 0;
@@ -60,7 +60,7 @@ const HeadlineBreakout = ({ lines, floorRef }: Props) => {
         >
           <span
             ref={ballRef}
-            className="absolute left-0 top-0 rounded-full bg-destructive"
+            className="absolute left-0 top-0 rounded-full bg-amber-400"
             style={{ width: BALL_RADIUS * 2, height: BALL_RADIUS * 2 }}
           />
           <span

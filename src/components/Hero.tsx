@@ -9,7 +9,7 @@ const viktorPhoto = "/viktor.jpg";
 const Hero = () => {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedMarkdown, setCopiedMarkdown] = useState(false);
-  const floorRef = useRef<HTMLLIElement>(null);
+  const bounceRef = useRef<HTMLUListElement>(null);
 
   const copyAsMarkdown = async () => {
     const res = await fetch("/profile.md");
@@ -40,7 +40,7 @@ const Hero = () => {
           <div className="md:col-span-2">
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
               <HeadlineBreakout
-                floorRef={floorRef}
+                bounceRef={bounceRef}
                 lines={[
                   {
                     text: "Viktor Shcherban",
@@ -62,8 +62,8 @@ const Hero = () => {
               </div> */}
 
               <div>
-                <ul className="list-disc list-inside mt-2 space-y-2">
-                  <li ref={floorRef}>19 years of experience building software</li>
+                <ul ref={bounceRef} className="list-disc list-inside mt-2 space-y-2">
+                  <li>19 years of experience building software</li>
                   <li>
                     4 years of experience building genAI products
                     <span className="block text-base text-slate-400 ml-8">

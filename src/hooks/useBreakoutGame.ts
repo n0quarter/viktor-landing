@@ -19,10 +19,12 @@ export const PADDLE_HEIGHT = 8;
 // The top paddle is a damped spring chasing the ball — it eases in (accelerates),
 // builds momentum, then eases out (decelerates) as it settles. Tuned so it always
 // catches the ball (verified: 0 misses against the real headline geometry).
-const PADDLE_STIFFNESS = 0.15; // spring pull toward the ball (brisk but with momentum)
+const PADDLE_STIFFNESS = 0.3; // spring pull toward the ball while it's rising
 const PADDLE_DAMPING = 0.2; // velocity damping (accel/decel feel)
+const PADDLE_MAX_SPEED = 5; // px/frame cap so it moves at a calm, human pace
 const PADDLE_LANE = 42; // px above the first line — sits just under the top banner
 const RESET_DELAY_MS = 1200; // pause before the lines heal and the loop repeats
+const START_DELAY_MS = 10000; // ball + paddle stay hidden, then appear and the game begins
 const BRICK_HEIGHT_FACTOR = 0.7; // shrink bricks so the ball can pass over/under
 const FLOOR_FALLBACK = 160; // px below the container top if no floor element given
 const BROKEN_OPACITY = "0.45"; // knocked-out letters dim but stay readable
@@ -61,13 +63,38 @@ export function shouldEnableGame(): boolean {
   );
 }
 
+// Measure every glyph's rect inside `root` via the Range API — lets us use plain
+// body text as bounce colliders without wrapping each letter in a span. Rects are
+// returned relative to `base` and shrunk to their middle band like the bricks.
+function measureGlyphRects(root: HTMLElement, base: DOMRect): Rect[] {
+  const out: Rect[] = [];
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  let node: Node | null;
+  while ((node = walker.nextNode())) {
+    const text = node.nodeValue ?? "";
+    for (let i = 0; i < text.length; i++) {
+      if (/\s/.test(text[i])) continue;
+      const range = document.createRange();
+      range.setStart(node, i);
+      range.setEnd(node, i + 1);
+      const r = range.getBoundingClientRect();
+      if (r.width < 0.5 || r.height < 0.5) continue;
+      const h = r.height * BRICK_HEIGHT_FACTOR;
+      out.push({ x: r.left - base.left, y: r.top - base.top + (r.height - h) / 2, w: r.width, h });
+    }
+  }
+  return out;
+}
+
 type Refs = {
   enabled: boolean;
   containerRef: React.RefObject<HTMLElement>;
   ballRef: React.RefObject<HTMLElement>;
   paddleRef: React.RefObject<HTMLElement>;
   letterRefs: React.MutableRefObject<(HTMLElement | null)[]>;
-  floorRef: React.RefObject<HTMLElement>;
+  // Region of plain body text the ball bounces off (never fades); its bottom edge
+  // is also the floor.
+  bounceRef: React.RefObject<HTMLElement>;
 };
 
 /** Drives the ambient game entirely via direct DOM writes (no per-frame state). */
@@ -77,7 +104,7 @@ export function useBreakoutGame({
   ballRef,
   paddleRef,
   letterRefs,
-  floorRef,
+  bounceRef,
 }: Refs): void {
   useEffect(() => {
     const container = containerRef.current;
@@ -93,14 +120,18 @@ export function useBreakoutGame({
     let leftBound = 0;
     let rightBound = width;
 
-    // Letter rects, relative to the container, shrunk to their middle band so the
-    // ball can travel over/under glyphs (real 2-D sweep, not a horizontal skim).
+    // Breakable headline letters (fade when hit) and static body glyphs (bounce
+    // only). Both are shrunk to their middle band so the ball can weave between
+    // lines and hit tops/bottoms — a real 2-D sweep, not a horizontal skim.
     let rects: (Rect | null)[] = [];
+    let bounceRects: Rect[] = [];
     const measure = () => {
       const base = container.getBoundingClientRect();
-      // Floor = top of the row below the headline (e.g. the "19 years…" line).
-      floorY = floorRef.current
-        ? floorRef.current.getBoundingClientRect().top - base.top
+      bounceRects = bounceRef.current ? measureGlyphRects(bounceRef.current, base) : [];
+      // Floor = the bottom of the body text region (the ball bounces off the
+      // actual letters above it; this is just the safety wall beneath them).
+      floorY = bounceRef.current
+        ? bounceRef.current.getBoundingClientRect().bottom - base.top
         : FLOOR_FALLBACK;
       rects = letterRefs.current.map((el) => {
         if (!el || el.textContent === " ") return null;
@@ -120,6 +151,10 @@ export function useBreakoutGame({
         min = Math.min(min, r.x);
         max = Math.max(max, r.x + r.w);
       }
+      for (const r of bounceRects) {
+        min = Math.min(min, r.x);
+        max = Math.max(max, r.x + r.w);
+      }
       leftBound = min === Infinity ? 0 : min;
       rightBound = max === -Infinity ? width : max;
     };
@@ -132,23 +167,38 @@ export function useBreakoutGame({
       if (el) el.style.opacity = isBroken ? BROKEN_OPACITY : "1";
     };
 
-    const b = { x: (leftBound + rightBound) / 2, y: (ceilingY + floorY) / 2, vx: BALL_SPEED, vy: BALL_SPEED };
-    let paddleX = (leftBound + rightBound) / 2;
+    const half = PADDLE_WIDTH / 2;
+    const b = { x: 0, y: 0, vx: BALL_SPEED, vy: BALL_SPEED };
+    let paddleX = 0;
     let paddleVX = 0; // paddle velocity, integrated by the spring (gives momentum)
     let resetAt: number | null = null;
+    let started = false;
+
+    // Before the game begins, park the ball + paddle in the top-left corner and
+    // keep them hidden — they appear only when the game starts.
+    const placeStatic = () => {
+      paddleX = leftBound + half;
+      b.x = leftBound + BALL_RADIUS;
+      b.y = ceilingY + PADDLE_HEIGHT + BALL_RADIUS;
+      ballEl.style.transform = `translate(${b.x - BALL_RADIUS}px, ${b.y - BALL_RADIUS}px)`;
+      paddleEl.style.transform = `translate(${paddleX - half}px, ${ceilingY}px)`;
+    };
+    placeStatic();
+    ballEl.style.opacity = "0";
+    paddleEl.style.opacity = "0";
 
     const syncSize = () => {
       width = container.clientWidth;
       measure();
+      if (!started) placeStatic(); // keep the resting pose aligned through reflow
     };
     const resizeObserver = new ResizeObserver(syncSize);
     resizeObserver.observe(container);
-    if (document.fonts?.ready) document.fonts.ready.then(measure);
+    if (bounceRef.current) resizeObserver.observe(bounceRef.current);
+    if (document.fonts?.ready) document.fonts.ready.then(syncSize);
 
     let raf = 0;
     const step = (now: number) => {
-      const half = PADDLE_WIDTH / 2;
-
       b.x += b.vx;
       b.y += b.vy;
 
@@ -171,10 +221,13 @@ export function useBreakoutGame({
         b.vy = -Math.abs(b.vy);
       }
 
-      // Top paddle: damped spring toward the ball — accelerates, carries momentum,
-      // decelerates as it settles. Still tuned to always catch, then bounce down.
-      paddleVX += (b.x - paddleX) * PADDLE_STIFFNESS;
+      // Top paddle plays like a person: it rests while the ball falls away, and
+      // only moves to intercept once the ball is rising toward it (vy < 0). A
+      // damped spring gives the accel/decel; a speed cap stops it teleporting when
+      // it starts far from the ball. Tuned to always catch (0 misses), then bounce.
+      if (b.vy < 0) paddleVX += (b.x - paddleX) * PADDLE_STIFFNESS;
       paddleVX *= 1 - PADDLE_DAMPING;
+      paddleVX = Math.max(-PADDLE_MAX_SPEED, Math.min(PADDLE_MAX_SPEED, paddleVX));
       paddleX += paddleVX;
       const clampedX = Math.max(leftBound + half, Math.min(rightBound - half, paddleX));
       if (clampedX !== paddleX) paddleVX = 0; // shed momentum at the walls
@@ -187,8 +240,10 @@ export function useBreakoutGame({
         b.vx += ((b.x - paddleX) / half) * 0.6; // slight steer based on contact point
       }
 
-      // Letter collisions — resolve at most the nearest one per frame.
-      let hitIndex = -1;
+      // Collisions — resolve the single nearest collider this frame. Headline
+      // bricks (rects) fade when hit; body glyphs (bounceRects) only deflect.
+      let hitRect: Rect | null = null;
+      let hitIndex = -1; // headline index if the nearest hit is breakable, else -1
       let hitDist = Infinity;
       for (let i = 0; i < rects.length; i++) {
         const rect = rects[i];
@@ -196,14 +251,24 @@ export function useBreakoutGame({
         const d = (b.x - (rect.x + rect.w / 2)) ** 2 + (b.y - (rect.y + rect.h / 2)) ** 2;
         if (d < hitDist) {
           hitDist = d;
+          hitRect = rect;
           hitIndex = i;
         }
       }
-      if (hitIndex >= 0) {
-        const reflected = reflectOffRect(ball, b.vx, b.vy, rects[hitIndex]!);
+      for (const rect of bounceRects) {
+        if (!ballHitsRect(ball, rect)) continue;
+        const d = (b.x - (rect.x + rect.w / 2)) ** 2 + (b.y - (rect.y + rect.h / 2)) ** 2;
+        if (d < hitDist) {
+          hitDist = d;
+          hitRect = rect;
+          hitIndex = -1;
+        }
+      }
+      if (hitRect) {
+        const reflected = reflectOffRect(ball, b.vx, b.vy, hitRect);
         b.vx = reflected.vx;
         b.vy = reflected.vy;
-        setBroken(hitIndex, true);
+        if (hitIndex >= 0) setBroken(hitIndex, true);
       }
 
       // Keep a steady speed with a balanced diagonal so neither axis stalls —
@@ -238,9 +303,17 @@ export function useBreakoutGame({
 
       raf = requestAnimationFrame(step);
     };
-    raf = requestAnimationFrame(step);
+
+    // Reveal the ball + paddle and start the game after a beat.
+    const startTimer = setTimeout(() => {
+      started = true;
+      ballEl.style.opacity = "1";
+      paddleEl.style.opacity = "1";
+      raf = requestAnimationFrame(step);
+    }, START_DELAY_MS);
 
     return () => {
+      clearTimeout(startTimer);
       cancelAnimationFrame(raf);
       resizeObserver.disconnect();
     };
