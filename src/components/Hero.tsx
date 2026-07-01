@@ -1,13 +1,15 @@
 import bgImage from "@/assets/bg8.png";
+import HeadlineBreakout from "@/components/HeadlineBreakout";
 import { Button } from "@/components/ui/button";
 import { CONTACT_INFO } from "@/lib/constants";
 import { Check, ClipboardCopy, Copy, FileText, Mail, MapPin } from "lucide-react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 const viktorPhoto = "/viktor.jpg";
 
 const Hero = () => {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedMarkdown, setCopiedMarkdown] = useState(false);
+  const floorRef = useRef<HTMLLIElement>(null);
 
   const copyAsMarkdown = async () => {
     const res = await fetch("/profile.md");
@@ -37,12 +39,19 @@ const Hero = () => {
         <div className="grid md:grid-cols-3 gap-12 items-start">
           <div className="md:col-span-2">
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
-              <span className="text-3xl md:text-4xl lg:text-5xl block mb-2">Viktor Shcherban</span>
-              <span className="text-primary">
-                {/* keep it here commented for now */}
-                {/* AI Product Engineer or Full-Stack GenAI Engineer */}
-                AI Engineer & Full-Stack Developer
-              </span>
+              <HeadlineBreakout
+                floorRef={floorRef}
+                lines={[
+                  {
+                    text: "Viktor Shcherban",
+                    className: "text-3xl md:text-4xl lg:text-5xl block mb-2",
+                  },
+                  {
+                    text: "AI Engineer & Full-Stack Developer",
+                    className: "text-primary block",
+                  },
+                ]}
+              />
             </h1>
             <div className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed space-y-8">
               {/* <div>
@@ -54,7 +63,7 @@ const Hero = () => {
 
               <div>
                 <ul className="list-disc list-inside mt-2 space-y-2">
-                  <li>19 years of experience building software</li>
+                  <li ref={floorRef}>19 years of experience building software</li>
                   <li>
                     4 years of experience building genAI products
                     <span className="block text-base text-slate-400 ml-8">
