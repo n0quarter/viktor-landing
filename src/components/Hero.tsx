@@ -1,10 +1,10 @@
 import bgImage from "@/assets/bg8.png";
+import viktorPhoto from "@/assets/main_with_bg.jpg";
 import HeadlineBreakout from "@/components/HeadlineBreakout";
 import { Button } from "@/components/ui/button";
 import { CONTACT_INFO } from "@/lib/constants";
 import { Check, ClipboardCopy, Copy, FileText, Mail, MapPin } from "lucide-react";
 import { useRef, useState } from "react";
-const viktorPhoto = "/viktor.jpg";
 
 const Hero = () => {
   const [copiedEmail, setCopiedEmail] = useState(false);
@@ -36,8 +36,8 @@ const Hero = () => {
       }}
     >
       <div className="container max-w-6xl">
-        <div className="grid md:grid-cols-3 gap-12 items-start">
-          <div className="md:col-span-2">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-12 items-start">
+          <div className="md:col-span-2 order-2 md:order-none">
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
               <HeadlineBreakout
                 bounceRef={bounceRef}
@@ -138,11 +138,11 @@ const Hero = () => {
               </div>
             </div>
           </div>
-          <div className="hidden md:flex justify-center">
+          <div className="w-full md:w-auto flex justify-center order-1 md:order-none">
             <img
               src={viktorPhoto}
               alt="Viktor Shcherban"
-              className="w-56 h-72 object-cover rounded-2xl border border-slate-600"
+              className="w-full md:max-w-xs aspect-[3/2] object-cover rounded-2xl"
             />
           </div>
         </div>

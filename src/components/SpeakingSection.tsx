@@ -22,7 +22,7 @@ const SpeakingSection = () => {
                 <h2 className="text-2xl md:text-3xl font-bold mb-2">Public Speaker</h2>
                 <p className="text-slate-300 max-w-xl">
                   Presenting at AI conferences and meetups on topics like agentic systems and
-                  AI-assisted coding. 20+ talks delivered over 18 years to audiences of 20-400.
+                  AI-assisted coding. 30+ talks delivered to audiences of 20-400.
                 </p>
               </div>
             </div>

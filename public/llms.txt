@@ -119,7 +119,7 @@ Understanding LLM limitations, hallucinations, and how to avoid common AI develo
 
 ## Public Speaking
 
-Presenting at AI conferences and meetups on topics like agentic systems and AI-assisted coding. 20+ talks delivered over 18 years to audiences of 20–400.
+Presenting at AI conferences and meetups on topics like agentic systems and AI-assisted coding. 30+ talks delivered to audiences of 20–400.
 
 Available for speaking — remote & Berlin area.
 
