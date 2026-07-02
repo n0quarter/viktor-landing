@@ -1,22 +1,10 @@
+import { useCopy } from "@/hooks/useCopy";
 import { CONTACT_INFO } from "@/lib/constants";
 import { Check, Copy, Globe, GraduationCap, Linkedin, Mail, MapPin, Phone } from "lucide-react";
-import { useState } from "react";
 
 const Footer = () => {
-  const [copiedEmail, setCopiedEmail] = useState(false);
-  const [copiedPhone, setCopiedPhone] = useState(false);
-
-  const copyEmail = () => {
-    navigator.clipboard.writeText(CONTACT_INFO.email);
-    setCopiedEmail(true);
-    setTimeout(() => setCopiedEmail(false), 2000);
-  };
-
-  const copyPhone = () => {
-    navigator.clipboard.writeText(CONTACT_INFO.phone);
-    setCopiedPhone(true);
-    setTimeout(() => setCopiedPhone(false), 2000);
-  };
+  const email = useCopy();
+  const phone = useCopy();
 
   return (
     <footer className="py-16 bg-foreground text-background">
@@ -31,11 +19,11 @@ const Footer = () => {
                   <Mail className="w-5 h-5" />
                   <span>{CONTACT_INFO.email}</span>
                   <button
-                    onClick={copyEmail}
+                    onClick={() => email.copy(CONTACT_INFO.email)}
                     className="hover:text-background transition-colors p-1"
                     title="Copy email"
                   >
-                    {copiedEmail ? (
+                    {email.copied ? (
                       <Check className="w-4 h-4 text-green-400" />
                     ) : (
                       <Copy className="w-4 h-4 opacity-50" />
@@ -48,11 +36,11 @@ const Footer = () => {
                   <Phone className="w-5 h-5" />
                   <span>{CONTACT_INFO.phone}</span>
                   <button
-                    onClick={copyPhone}
+                    onClick={() => phone.copy(CONTACT_INFO.phone)}
                     className="hover:text-background transition-colors p-1"
                     title="Copy phone"
                   >
-                    {copiedPhone ? (
+                    {phone.copied ? (
                       <Check className="w-4 h-4 text-green-400" />
                     ) : (
                       <Copy className="w-4 h-4 opacity-50" />

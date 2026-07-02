@@ -264,7 +264,7 @@ const OtherExperience = () => {
             ))}
           </div>
         </CardContent>
-        {exp.company !== "Bonial International Group" && (
+        {exp.founderRole !== "Employee" && (
           <CardFooter
             className={`${statusStyles.bgColor} border-t ${statusStyles.borderColor} py-2 px-6 flex items-center gap-1.5 text-xs font-medium`}
           >
