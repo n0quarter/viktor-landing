@@ -21,6 +21,7 @@ interface ExperienceItem {
   description: string;
   highlights: string[];
   tech: string[];
+  moreTech?: string[];
   logo?: string;
   url?: string;
   statusLabel?: string;
@@ -52,6 +53,7 @@ const experiences: ExperienceItem[] = [
       "Terraform",
       "Kotlin",
     ],
+    moreTech: ["JavaScript", "Java", "NoCode/LowCode", "CI/CD", "Git", "Docker", "Redis", "Celery", "REST API", "GitHub Actions"],
     logo: timberbaseLogo,
     url: "https://timberbase.com/",
     statusLabel: "Acquired by UFP",
@@ -70,6 +72,7 @@ const experiences: ExperienceItem[] = [
       "Defined product roadmap & agile processes",
     ],
     tech: ["React Native", "Redux", "Kotlin", "PostgreSQL", "AWS", "Firebase"],
+    moreTech: ["JS/TS", "Expo", "Spring Boot", "WebSockets", "REST API", "Git", "Docker", "Fastlane", "Jest", "Push Notifications", "Gradle"],
     logo: uberblickLogo,
     url: "https://uberblick.io/",
     statusLabel: "Active",
@@ -88,6 +91,7 @@ const experiences: ExperienceItem[] = [
       "Fostered clean architecture & CI best practices",
     ],
     tech: ["Swift", "React Native", "Redux", "AWS", "iOS", "Android"],
+    moreTech: ["Objective-C", "Java", "CI/CD", "Fastlane", "Jenkins", "Git"],
     logo: bonialLogo,
     url: "https://www.bonial.com/",
     statusLabel: "Active",
@@ -106,6 +110,7 @@ const experiences: ExperienceItem[] = [
       "Architecture, implementation & delivery",
     ],
     tech: ["iOS", "Objective-C", "UIKit", "Git"],
+    moreTech: ["Core Data", "REST API", "Xcode", "Android", "Java"],
     logo: asdcodeLogo,
     statusLabel: "Closed",
     statusType: "closed",
@@ -124,6 +129,7 @@ const experiences: ExperienceItem[] = [
       "Managed software team of 6",
     ],
     tech: ["Ruby", "Perl", "PostgreSQL", "Redis", "AWS"],
+    moreTech: ["Ruby on Rails", "JIRA", "Scrum", "Sidekiq", "Nginx", "jQuery", "JavaScript"],
     logo: istatLogo,
     url: "https://istat24.com/",
     statusLabel: "Live",
@@ -142,6 +148,7 @@ const experiences: ExperienceItem[] = [
       "Created iOS & Android apps",
     ],
     tech: ["Perl", "MySQL", "Apache", "Objective-C", "iOS"],
+    moreTech: ["JavaScript", "jQuery", "Android", "Java", "Linux", "Memcached"],
     logo: vintLogo,
     url: "https://vint.com.ua/",
     statusLabel: "Operating",
@@ -263,6 +270,9 @@ const OtherExperience = () => {
               </Badge>
             ))}
           </div>
+          {exp.moreTech && (
+            <p className="mt-3 text-xs text-muted-foreground/60">Also: {exp.moreTech.join(", ")}</p>
+          )}
         </CardContent>
         {exp.founderRole !== "Employee" && (
           <CardFooter

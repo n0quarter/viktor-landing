@@ -16,6 +16,7 @@ interface Project {
   description: string;
   highlights: string[];
   tech: string[];
+  moreTech?: string[];
 }
 
 const projects: Project[] = [
@@ -32,24 +33,40 @@ const projects: Project[] = [
       "AI Voice from different vendors",
     ],
     tech: [
+      "AWS Bedrock",
+      "LangChain",
+      "LangSmith",
+      "LangGraph",
       "Vercel AI SDK",
       "RAG",
-      "Document AI",
-      "LLM",
       "MCP",
-      "Evals",
-      "Langchain",
-      "Langsmith",
-      "Langgraph",
+      "LLM Evals",
       "OpenAI Realtime API",
-      "AWS Nova Sonic 2",
       "Python",
       "Ruby on Rails",
-      "AWS Bedrock",
-      "Azure OpenAI",
-      "Google Vertex AI",
-      "OpenSearch",
+      "LLM",
       "pgvector",
+    ],
+    moreTech: [
+      "Node.js",
+      "AWS Fargate",
+      "AWS Cloudwatch",
+      "AWS Lambda",
+      "AWS Elasticache",
+      "AWS Nova Sonic 2",
+      "OpenSearch",
+      "Google Vertex AI",
+      "AWS S3",
+      "AWS Cloudfront",
+      "Azure OpenAI",
+      "Docker",
+      "Redis",
+      "Terraform",
+      "Document AI",
+      "PostgreSQL",
+      "Sidekiq",
+      "WebSockets",
+      "GitHub Actions",
     ],
   },
   {
@@ -60,7 +77,27 @@ const projects: Project[] = [
     period: "2025",
     description: "Enterprise AI solutions for insurance industry",
     highlights: ["AI strategy consulting", "Agentic workflows"],
-    tech: ["Vercel AI SDK", "RAG", "LLM", "MCP", "Evals", "Langchain", "Mastra", "Langfuse"],
+    tech: ["Vercel AI SDK", "RAG", "LLM", "MCP", "Evals", "LangChain", "Mastra", "Langfuse"],
+    moreTech: [
+      "LangSmith",
+      "React",
+      "Supabase",
+      "TypeScript",
+      "Node.js",
+      "Docker",
+      "PostgreSQL",
+      "Next.js",
+      "Tailwind",
+      "Zod",
+      "OpenAI",
+      "Anthropic Claude",
+      "pgvector",
+      "Vercel",
+      "GitHub Actions",
+      "Vitest",
+      "Sentry",
+      "Datadog",
+    ],
   },
   {
     logo: docDoliteLogo,
@@ -78,7 +115,7 @@ const projects: Project[] = [
       "RAG",
       "LLM",
       "MCP",
-      "Langchain",
+      "LangChain",
       "VoIP",
       "FreeSWITCH",
       "Elevenlabs Voice",
@@ -88,6 +125,23 @@ const projects: Project[] = [
       "TypeScript",
       "AWS",
       "Pinecone"
+    ],
+    moreTech: [
+      "Evals",
+      "Docker",
+      "PostgreSQL",
+      "Twilio",
+      "SIP",
+      "Terraform",
+      "AWS Lambda",
+      "AWS RDS",
+      "AWS CloudWatch",
+      "AWS Bedrock",
+      "RabbitMQ",
+      "AWS SQS",
+      "OpenTelemetry",
+      "AWS Route 53",
+      "AWS Certificate Manager",
     ],
   },
   {
@@ -106,7 +160,7 @@ const projects: Project[] = [
     tech: [
       "LLM",
       "RAG",
-      "Langchain",
+      "LangChain",
       "Python",
       "Node.js",
       "Supabase",
@@ -115,6 +169,22 @@ const projects: Project[] = [
       "TypeScript",
       "React",
       "AWS",
+    ],
+    moreTech: [
+      "MCP",
+      "LangSmith",
+      "Evals",
+      "AWS Fargate",
+      "Docker",
+      "Terraform",
+      "PostgreSQL",
+      "OpenAI",
+      "Anthropic Claude",
+      "Deepseek",
+      "Gemini",
+      "Vertex AI",
+      "GCP",
+      "GitHub Actions",
     ],
   },
   {
@@ -130,6 +200,19 @@ const projects: Project[] = [
       "Grounded by web-search",
     ],
     tech: ["RAG", "LLM", "React", "DynamoDB", "Terraform", "serverless", "TypeScript", "Javascript", "Node.js", "AWS", "openAI platform"],
+    moreTech: [
+      "Tailwind",
+      "Vercel",
+      "Next.js",
+      "Supabase",
+      "AWS Lambda",
+      "AWS API Gateway",
+      "AWS S3",
+      "Telegram Bot API",
+      "OpenAI Vision",
+      "AWS DynamoDB",
+      "AWS Cloudfront",
+    ],
   },
   {
     logo: empionLogo,
@@ -144,6 +227,7 @@ const projects: Project[] = [
       "AI-powered web-research",
     ],
     tech: ["LLM", "Evals", "OpenRouter", "Python", "Node.js", "TypeScript", "Javascript", "React"],
+    moreTech: ["PostgreSQL", "FastAPI", "Pydantic", "OpenAI", "Playwright", "Docker", "AWS"],
   },
 ];
 
@@ -210,6 +294,11 @@ const AIProjects = () => {
                     </Badge>
                   ))}
                 </div>
+                {project.moreTech && (
+                  <p className="mt-3 text-xs text-muted-foreground/60">
+                    Also: {project.moreTech.join(", ")}
+                  </p>
+                )}
               </CardContent>
             </Card>
           ))}

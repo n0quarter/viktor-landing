@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 .claude
+
+# CV is its own independent git repo (own origin); the landing repo ignores it.
+CV/
