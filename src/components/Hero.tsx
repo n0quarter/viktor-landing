@@ -44,9 +44,9 @@ const Hero = () => {
             </h1>
             <div className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed">
               <ul ref={bounceRef} className="list-disc list-inside mt-2 space-y-2">
-                <li>19 years of experience building software</li>
+                <li>20 years of experience building software</li>
                 <li>
-                  4 years of experience building genAI products
+                  3+ years of experience building genAI products
                   <span className="block text-base text-slate-400 ml-8">
                     Text & Voice/Phone Agents · RAG Pipelines · MCP Servers
                   </span>

@@ -83,7 +83,7 @@ const experiences: ExperienceItem[] = [
     period: "2014 – 2017",
     title: "Software Architect",
     founderRole: "Employee",
-    company: "Bonial International Group",
+    company: "Bonial, adTech",
     description: "Mobile engineering leadership and system architecture.",
     highlights: [
       "Led iOS, Android, React Native teams",
@@ -100,7 +100,7 @@ const experiences: ExperienceItem[] = [
   },
   {
     period: "2011 – 2013",
-    title: "CEO/CTO",
+    title: "CTO",
     founderRole: "Founder",
     company: "asdCode Mobile Agency",
     description: "Mobile development agency with team of 5.",
@@ -126,7 +126,7 @@ const experiences: ExperienceItem[] = [
       "~20 presentations at industry conferences",
       "Customer development & lean startup",
       "Introduced Scrum to the team",
-      "Managed software team of 6",
+      "Managed software team of 4",
     ],
     tech: ["Ruby", "Perl", "PostgreSQL", "Redis", "AWS"],
     moreTech: ["Ruby on Rails", "JIRA", "Scrum", "Sidekiq", "Nginx", "jQuery", "JavaScript"],
@@ -317,7 +317,7 @@ const OtherExperience = () => {
             Previous Experience
           </h2>
           <div className="max-w-fit mx-auto text-left text-muted-foreground space-y-1">
-            <p>Over the past 18+ years, I've founded and co-founded 5 companies.</p>
+            <p>Over the past 20 years, I've founded and co-founded 5 companies.</p>
             <p>Four of them are still successfully operational,</p>
             <p>and the last one was acquired by UFP (a NASDAQ-listed U.S. company).</p>
           </div>

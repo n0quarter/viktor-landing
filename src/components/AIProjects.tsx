@@ -108,8 +108,8 @@ const projects: Project[] = [
     description: "AI voice phone receptionist for German doctors' practices",
     highlights: [
       "Multi-modal AI agents (voice + text)",
-      "AI generated reply suggestions",
-      "Smart categorization of incoming calls",
+      "AI-generated communication templates",
+      "AI-categorization of incoming calls/tickets",
     ],
     tech: [
       "RAG",
@@ -222,7 +222,7 @@ const projects: Project[] = [
     period: "2025",
     description: "Enterprise AI content categorization and AI-powered web-research.",
     highlights: [
-      "Multiple LLM evaluation framework",
+      "Created a custom LLM evaluation framework",
       "Iterate LLM error rate based on annotated data",
       "AI-powered web-research",
     ],

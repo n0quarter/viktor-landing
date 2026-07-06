@@ -2,7 +2,7 @@
 
 Berlin, Germany · viktor@shcherban.de · +4915754278950 · [LinkedIn](https://www.linkedin.com/in/shcherbanviktor/)
 
-- 18+ years of experience building software
+- 20 years of experience building software
 - 3+ years of experience building gen-AI products
   - Text & Voice/Phone Agents · RAG Pipelines · LLM Evals
 - As a former startups' CTO, I specialize in fast yet robust MVPs
@@ -41,8 +41,8 @@ Enterprise AI solutions for insurance industry.
 AI voice phone receptionist for German doctors' practices.
 
 - Multi-modal AI agents (voice + text)
-- AI generated reply suggestions
-- Smart categorization of incoming calls
+- AI-generated communication templates
+- AI-categorization of incoming calls/tickets
 
 **Tech:** RAG, LLM, MCP, Langchain, VoIP, FreeSWITCH, Elevenlabs Voice, Supabase, Node.js, React, TypeScript, AWS
 
@@ -77,7 +77,7 @@ Gen-AI chatbot helping Ukrainian refugees navigate German bureaucracy.
 
 Enterprise AI content categorization and AI-powered web-research.
 
-- Multiple LLM evaluation framework
+- Created a custom LLM evaluation framework
 - Iterate LLM error rate based on annotated data
 - AI-powered web-research
 
@@ -87,7 +87,7 @@ Enterprise AI content categorization and AI-powered web-research.
 
 ## Gen AI Workshop for Developers
 
-Author of a Gen AI Workshop for Developers. 80+ developers trained across 4 workshops.
+Author of a Gen AI Workshop for Developers. 100+ developers trained across 6 workshops.
 More info: [ai.asdcode.com](https://ai.asdcode.com/)
 
 ### Topics Covered
@@ -127,7 +127,7 @@ Available for speaking — remote & Berlin area.
 
 ## Previous Experience
 
-Over the past 18+ years, I've founded and co-founded 5 companies. Four of them are still successfully operational, and the last one was acquired by UFP (a NASDAQ-listed U.S. company).
+Over the past 20 years, I've founded and co-founded 5 companies. Four of them are still successfully operational, and the last one was acquired by UFP (a NASDAQ-listed U.S. company).
 
 ### Hands-on CTO (Co-founder) — [TimberBase](https://timberbase.com/) · 2020–2023 🇩🇪
 
@@ -153,7 +153,7 @@ Internal communication app for hotels.
 
 ---
 
-### Software Architect — [Bonial International Group](https://www.bonial.com/) · 2014–2017 🇩🇪
+### Software Architect — [Bonial, adTech](https://www.bonial.com/) · 2014–2017 🇩🇪
 
 Mobile engineering leadership and system architecture.
 
@@ -165,7 +165,7 @@ Mobile engineering leadership and system architecture.
 
 ---
 
-### CEO/CTO (Founder) — asdCode Mobile Agency · 2011–2013 🇺🇦
+### CTO (Founder) — asdCode Mobile Agency · 2011–2013 🇺🇦
 
 Mobile development agency with a team of 5.
 
@@ -184,7 +184,7 @@ Call tracking SaaS platform.
 - ~20 presentations at industry conferences
 - Customer development & lean startup
 - Introduced Scrum to the team
-- Managed software team of 6
+- Managed software team of 4
 
 **Tech:** Ruby, Perl, PostgreSQL, Redis, AWS
 

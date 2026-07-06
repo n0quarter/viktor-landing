@@ -92,7 +92,7 @@ const WorkshopSection = () => {
             <div className="flex items-center gap-2 mb-4">
               <Users className="w-5 h-5 text-primary" />
               <span className="text-sm font-medium text-primary">
-                80+ developers trained across 4 workshops
+                100+ developers trained across 6 workshops
               </span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
