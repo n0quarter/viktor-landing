@@ -46,7 +46,7 @@ const Hero = () => {
               <ul ref={bounceRef} className="list-disc list-inside mt-2 space-y-2">
                 <li>20 years of experience building software</li>
                 <li>
-                  3+ years of experience building genAI products
+                  4+ years of experience building genAI products
                   <span className="block text-base text-slate-400 ml-8">
                     Text & Voice/Phone Agents · RAG Pipelines · MCP Servers
                   </span>

@@ -8,7 +8,8 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface Project {
-  logo: string;
+  logo?: string;
+  logoText?: string;
   title: string;
   company: string;
   url?: string;
@@ -21,11 +22,50 @@ interface Project {
 
 const projects: Project[] = [
   {
+    logoText: "SIXT",
+    title: "Customer Support Chatbot & RAG",
+    company: "Sixt",
+    url: "https://www.sixt.com/",
+    period: "2026 - Present",
+    description: "Customer support chatbot and RAG for car rentals",
+    highlights: ["Agentic workflows", "Multi-agent orchestration"],
+    tech: [
+      "Python",
+      "LangChain",
+      "LangGraph",
+      "RAG",
+      "MCP",
+      "AWS Bedrock",
+      "AWS Bedrock AgentCore",
+      "Bedrock Guardrails",
+      "Azure OpenAI",
+      "OpenSearch",
+      "Arize",
+      "OpenTelemetry",
+      "PromptFoo",
+    ],
+    moreTech: [
+      "FastAPI",
+      "PostgreSQL",
+      "DynamoDB",
+      "AWS S3",
+      "AWS SQS",
+      "AWS Athena",
+      "Docker",
+      "Kubernetes",
+      "Terraform",
+      "Jenkins",
+      "React",
+      "TypeScript",
+      "AWS CloudWatch",
+    ],
+  },
+  {
     logo: suitePadLogo,
     title: "AI Concierge for Hotels",
     company: "SuitePad",
     url: "https://www.suitepad.de/",
-    period: "2024 - Present",
+    period: "Aug 2024 - May 2026",
     description: "Text & Voice AI chatbot grounded in hotel-specific knowledge",
     highlights: [
       "RAG pipelines, MCP servers",
@@ -240,7 +280,7 @@ const AIProjects = () => {
             Recent AI Projects
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            During the last 3+ years I've built 6 production-grade genAI systems
+            During the last 4+ years I've built 7 production-grade genAI systems
           </p>
         </div>
 
@@ -249,12 +289,18 @@ const AIProjects = () => {
             <Card key={index} className="border border-border select-text">
               <CardHeader>
                 <div className="h-10 flex items-center justify-start mb-4">
-                  <img
-                    src={project.logo}
-                    alt={`${project.company} logo`}
-                    className="max-h-full max-w-full object-contain"
-                    draggable="false"
-                  />
+                  {project.logo ? (
+                    <img
+                      src={project.logo}
+                      alt={`${project.company} logo`}
+                      className="max-h-full max-w-full object-contain"
+                      draggable="false"
+                    />
+                  ) : (
+                    <span className="text-2xl font-black tracking-tight text-[#ff5f00]">
+                      {project.logoText}
+                    </span>
+                  )}
                 </div>
                 <CardTitle className="text-xl">{project.title}</CardTitle>
                 <CardDescription>

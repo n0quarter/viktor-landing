@@ -3,7 +3,7 @@
 Berlin, Germany · viktor@shcherban.de · +4915754278950 · [LinkedIn](https://www.linkedin.com/in/shcherbanviktor/)
 
 - 20 years of experience building software
-- 3+ years of experience building gen-AI products
+- 4+ years of experience building gen-AI products
   - Text & Voice/Phone Agents · RAG Pipelines · LLM Evals
 - As a former startups' CTO, I specialize in fast yet robust MVPs
 
@@ -11,9 +11,22 @@ Berlin, Germany · viktor@shcherban.de · +4915754278950 · [LinkedIn](https://w
 
 ## Recent AI Projects
 
-During the last 3+ years I've built 6 production-grade genAI systems.
+During the last 4+ years I've built 7 production-grade genAI systems.
 
-### AI Concierge for Hotels — [SuitePad](https://www.suitepad.de/) (2024–Present)
+### Customer Support Chatbot & RAG — [Sixt](https://www.sixt.com/) (2026–Present)
+
+Customer support chatbot and RAG for car rentals.
+
+- Agentic workflows
+- Multi-agent orchestration
+
+**Tech:** Python, LangChain, LangGraph, RAG, MCP, AWS Bedrock, AWS Bedrock AgentCore, Bedrock Guardrails, Azure OpenAI, OpenSearch, Arize, OpenTelemetry, PromptFoo
+
+**Also:** FastAPI, PostgreSQL, DynamoDB, AWS S3, AWS SQS, AWS Athena, Docker, Kubernetes, Terraform, Jenkins, React, TypeScript, AWS CloudWatch
+
+---
+
+### AI Concierge for Hotels — [SuitePad](https://www.suitepad.de/) (Aug 2024–May 2026)
 
 Text & Voice AI chatbot grounded in hotel-specific knowledge.
 
@@ -137,7 +150,7 @@ Global B2B marketplace. *Acquired by UFP (NASDAQ-listed).*
 - Established technical standards (CI/CD, clean architecture)
 - Reliable feature delivery for hypothesis validation
 
-**Tech:** Python, Django, TypeScript, React, Redux, PostgreSQL, AWS, Terraform, Kotlin
+**Tech:** Python, Django, TypeScript, React, Redux, PostgreSQL, AWS, Terraform, Java, Kotlin, Spring Boot
 
 ---
 
@@ -149,7 +162,7 @@ Internal communication app for hotels.
 - Continuous iterations
 - Defined product roadmap & agile processes
 
-**Tech:** React Native, Redux, Kotlin, PostgreSQL, AWS, Firebase
+**Tech:** React Native, Redux, Java, Kotlin, Spring Boot, PostgreSQL, AWS, Firebase
 
 ---
 
